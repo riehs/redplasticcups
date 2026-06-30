@@ -11,10 +11,10 @@
         
         body {
             font-family: 'Outfit', sans-serif;
-            background-color: #0f172a;
+            background-color: #e0f2fe;
             background-image: 
-                radial-gradient(circle at 20% 20%, #1e293b 0%, transparent 40%),
-                radial-gradient(circle at 80% 80%, #0f172a 0%, #020617 100%);
+                radial-gradient(circle at 20% 20%, #f0f9ff 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, #bae6fd 0%, #7dd3fc 100%);
         }
         
         .title-font {
@@ -42,7 +42,7 @@
             width: 12px;
         }
         .custom-scrollbar::-webkit-scrollbar-track {
-            background: #1e293b;
+            background: #fff;
             border: 3px solid #000;
             border-radius: 8px;
         }
@@ -56,7 +56,7 @@
         }
     </style>
 </head>
-<body class="text-slate-100 min-h-screen flex flex-col justify-between overflow-x-hidden selection:bg-yellow-400 selection:text-slate-900 pb-8">
+<body class="text-slate-900 min-h-screen flex flex-col justify-between overflow-x-hidden selection:bg-yellow-400 selection:text-slate-900 pb-8">
 
     <!-- Header -->
     <header class="bg-amber-400 border-4 border-black py-5 px-6 shadow-[0_6px_0px_#000] z-10 relative m-4 md:m-6 rounded-2xl">
@@ -68,7 +68,7 @@
                         RERACK OR NOT? 
                         <span class="text-xs bg-red-600 text-white border-2 border-black px-3 py-1 rounded-full tracking-normal font-sans font-black pop-shadow-sm rotate-2">redplasticcups.com</span>
                     </h1>
-                    <p class="text-sm md:text-base text-slate-900 font-extrabold tracking-wide mt-1">Strategic Beer Pong Match Simulator & Arcade</p>
+                    <p class="text-sm md:text-base text-slate-950 font-extrabold tracking-wide mt-1">Strategic Beer Pong Match Simulator & Arcade</p>
                 </div>
             </div>
             
@@ -89,18 +89,18 @@
     <main class="flex-grow max-w-7xl w-full mx-auto px-4 md:px-6 grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
         
         <!-- Left Side: Cartoon Wood Door Table (7 Cols) -->
-        <div class="lg:col-span-7 flex flex-col bg-slate-900 border-4 border-black p-5 md:p-6 rounded-3xl pop-shadow relative min-h-[620px] justify-between">
+        <div class="lg:col-span-7 flex flex-col bg-white border-4 border-black p-5 md:p-6 rounded-3xl pop-shadow relative min-h-[620px] justify-between">
             
-            <div class="mb-4 bg-slate-950 p-4 border-4 border-black rounded-2xl pop-shadow-sm">
-                <h3 class="text-lg font-black uppercase tracking-wider text-amber-400">Door Table Layout</h3>
-                <p class="text-sm md:text-base text-slate-200 leading-relaxed mt-1" id="scenario-description">Generating standard random scattered positions based on classic match configurations...</p>
+            <div class="mb-4 bg-amber-50 p-4 border-4 border-black rounded-2xl pop-shadow-sm">
+                <h3 class="text-lg font-black uppercase tracking-wider text-red-600">Door Table Layout</h3>
+                <p class="text-sm md:text-base text-slate-900 font-bold leading-relaxed mt-1" id="scenario-description">Generating standard random scattered positions based on classic match configurations...</p>
             </div>
 
             <!-- Beer Pong Table Area -->
-            <div class="relative flex-grow flex items-center justify-center bg-slate-950 border-4 border-black rounded-3xl p-5 overflow-hidden min-h-[430px] shadow-[inset_0_4px_10px_rgba(0,0,0,0.8)]">
+            <div class="relative flex-grow flex items-center justify-center bg-sky-100 border-4 border-black rounded-3xl p-5 overflow-hidden min-h-[430px] shadow-[inset_0_4px_10px_rgba(0,0,0,0.15)]">
                 
                 <!-- CARTOON OAK WOOD DOOR TABLE -->
-                <div class="w-full max-w-[330px] aspect-[1/2] bg-[#b45309] rounded-xl border-[6px] border-black shadow-[0_12px_24px_rgba(0,0,0,0.8)] relative flex flex-col justify-between py-8 px-4 overflow-hidden">
+                <div class="w-full max-w-[330px] aspect-[1/2] bg-[#b45309] rounded-xl border-[6px] border-black shadow-[0_12px_24px_rgba(0,0,0,0.3)] relative flex flex-col justify-between py-8 px-4 overflow-hidden">
                     
                     <!-- Cartoon Recessed Door Panels (cel-shaded styling) -->
                     <div class="absolute inset-0 p-3 grid grid-cols-2 grid-rows-3 gap-4 pointer-events-none">
@@ -124,11 +124,11 @@
 
                     <!-- Cartoon Wash Cups with Water and splashing drop -->
                     <!-- Top-Left Wash Cup -->
-                    <div class="absolute top-3 left-3 w-10 h-10 rounded-full bg-blue-600 border-[3px] border-black shadow-[2px_3px_0px_#000] flex items-center justify-center pointer-events-none select-none z-10">
+                    <div class="absolute top-3 left-3 w-10 h-10 rounded-full bg-blue-650 border-[3px] border-black shadow-[2px_3px_0px_#000] flex items-center justify-center pointer-events-none select-none z-10">
                         <div class="w-7 h-7 rounded-full bg-sky-300 border-2 border-white flex items-center justify-center text-xs font-bold text-slate-950 font-black">💧</div>
                     </div>
                     <!-- Bottom-Right Wash Cup -->
-                    <div class="absolute bottom-3 right-3 w-10 h-10 rounded-full bg-blue-600 border-[3px] border-black shadow-[2px_3px_0px_#000] flex items-center justify-center pointer-events-none select-none z-10">
+                    <div class="absolute bottom-3 right-3 w-10 h-10 rounded-full bg-blue-650 border-[3px] border-black shadow-[2px_3px_0px_#000] flex items-center justify-center pointer-events-none select-none z-10">
                         <div class="w-7 h-7 rounded-full bg-sky-300 border-2 border-white flex items-center justify-center text-xs font-bold text-slate-950 font-black">💧</div>
                     </div>
 
@@ -165,18 +165,18 @@
             </div>
 
             <!-- Interactive Decision Interface -->
-            <div id="decision-panel" class="mt-5 bg-white p-6 rounded-2xl border-4 border-black shadow-[4px_4px_0px_#000]">
+            <div id="decision-panel" class="mt-5 bg-amber-50 p-6 rounded-2xl border-4 border-black shadow-[4px_4px_0px_#000]">
                 <div class="flex flex-col md:flex-row items-center justify-between gap-6">
                     <div class="text-slate-950">
                         <h4 class="text-xl font-black uppercase tracking-wide">Strategic Choice: Your Shot</h4>
-                        <p class="text-base text-slate-800 mt-2 font-bold leading-relaxed">Do you request your <span class="text-red-600 font-extrabold underline decoration-2">1 free Rerack</span> to cluster their remaining cups, or shoot as they are?</p>
+                        <p class="text-base text-slate-900 mt-2 font-black leading-relaxed">Do you request your <span class="text-red-650 font-black underline decoration-2">1 free Rerack</span> to cluster their remaining cups, or shoot as they are?</p>
                     </div>
                     
                     <div class="flex gap-4 w-full md:w-auto">
                         <button id="btn-rerack" onclick="makeDecision(true)" class="flex-1 md:flex-initial bg-red-600 hover:bg-red-500 text-white font-black text-xl px-10 py-4.5 rounded-2xl border-4 border-black transition-all duration-75 btn-bounce pop-shadow-sm">
                             💥 RERACK
                         </button>
-                        <button id="btn-no-rerack" onclick="makeDecision(false)" class="flex-1 md:flex-initial bg-slate-200 hover:bg-slate-300 text-slate-950 font-black text-xl px-8 py-4.5 rounded-2xl border-4 border-black transition-all duration-75 btn-bounce pop-shadow-sm">
+                        <button id="btn-no-rerack" onclick="makeDecision(false)" class="flex-1 md:flex-initial bg-white hover:bg-slate-100 text-slate-950 font-black text-xl px-8 py-4.5 rounded-2xl border-4 border-black transition-all duration-75 btn-bounce pop-shadow-sm">
                             🎯 SHOOT AS-IS
                         </button>
                     </div>
@@ -189,36 +189,36 @@
         <div class="lg:col-span-5 flex flex-col gap-6">
             
             <!-- Match Stats / Context -->
-            <div class="bg-slate-900 border-4 border-black p-5 rounded-3xl pop-shadow flex flex-col gap-4">
+            <div class="bg-white border-4 border-black p-5 rounded-3xl pop-shadow flex flex-col gap-4">
                 <div class="flex justify-between items-center border-b-4 border-black pb-3">
-                    <h3 class="text-lg font-black uppercase tracking-wider text-amber-400">Match Analytics</h3>
-                    <span class="text-xs bg-red-600 text-white border-2 border-black font-black px-3 py-1 rounded-full pop-shadow-sm rotate-1 select-none">Rerack Available</span>
+                    <h3 class="text-lg font-black uppercase tracking-wider text-red-600">Match Analytics</h3>
+                    <span class="text-xs bg-red-655 text-white border-2 border-black font-black px-3 py-1 rounded-full pop-shadow-sm rotate-1 select-none">Rerack Available</span>
                 </div>
 
                 <div class="grid grid-cols-2 gap-4">
                     <!-- Probability Panel -->
-                    <div class="bg-white p-4 rounded-2xl border-4 border-black shadow-[4px_4px_0px_#000] flex flex-col justify-between gap-3 text-slate-950">
-                        <span class="text-sm uppercase font-black tracking-wider text-slate-500">Hit Probability</span>
+                    <div class="bg-amber-50 p-4 rounded-2xl border-4 border-black shadow-[4px_4px_0px_#000] flex flex-col justify-between gap-3 text-slate-950">
+                        <span class="text-sm uppercase font-black tracking-wider text-slate-700">Hit Probability</span>
                         <div class="my-1 flex items-baseline gap-1">
-                            <span id="prob-percentage" class="text-5xl font-black text-red-600 filter drop-shadow-[2px_2px_0px_rgba(0,0,0,0.15)]">--</span>
+                            <span id="prob-percentage" class="text-5xl font-black text-red-650 filter drop-shadow-[2px_2px_0px_rgba(0,0,0,0.15)]">--</span>
                         </div>
-                        <span id="prob-explanation" class="text-sm text-slate-800 font-bold leading-normal">Scatter layout makes near-misses lost chances.</span>
+                        <span id="prob-explanation" class="text-sm text-slate-900 font-extrabold leading-normal">Scatter layout makes near-misses lost chances.</span>
                     </div>
 
                     <!-- Tactical Assessment -->
-                    <div class="bg-white p-4 rounded-2xl border-4 border-black shadow-[4px_4px_0px_#000] flex flex-col justify-between gap-3 text-slate-950">
-                        <span class="text-sm uppercase font-black tracking-wider text-slate-500">Decision Tip</span>
+                    <div class="bg-amber-50 p-4 rounded-2xl border-4 border-black shadow-[4px_4px_0px_#000] flex flex-col justify-between gap-3 text-slate-950">
+                        <span class="text-sm uppercase font-black tracking-wider text-slate-700">Decision Tip</span>
                         <div class="my-1">
                             <span id="tactical-rating" class="text-xs font-black text-white uppercase tracking-wide bg-amber-500 border-2 border-black px-3 py-1.5 rounded-lg pop-shadow-sm inline-block">Highly Recommended</span>
                         </div>
-                        <span id="tactical-explanation" class="text-sm text-slate-800 font-bold leading-normal">Consolidating spread cups into a tight key increases overall hit success.</span>
+                        <span id="tactical-explanation" class="text-sm text-slate-900 font-extrabold leading-normal">Consolidating spread cups into a tight key increases overall hit success.</span>
                     </div>
                 </div>
 
                 <!-- Simulation Speed Control -->
-                <div class="bg-slate-950 p-4 rounded-2xl border-4 border-black flex items-center justify-between gap-4">
-                    <span class="text-sm font-black text-slate-300">Simulation Speed</span>
-                    <div class="flex gap-2 bg-slate-900 p-1.5 rounded-xl border-2 border-black">
+                <div class="bg-amber-50 p-4 rounded-2xl border-4 border-black flex items-center justify-between gap-4 text-slate-950">
+                    <span class="text-sm font-black text-slate-900">Simulation Speed</span>
+                    <div class="flex gap-2 bg-white p-1.5 rounded-xl border-2 border-black">
                         <button onclick="setSimSpeed(2000)" id="speed-slow" class="px-4 py-2 text-xs font-black rounded-lg border-2 border-black bg-white text-slate-950 btn-bounce pop-shadow-sm">Slow</button>
                         <button onclick="setSimSpeed(1000)" id="speed-normal" class="px-4 py-2 text-xs font-black rounded-lg border-2 border-black bg-amber-400 text-slate-950 btn-bounce pop-shadow-sm">Norm</button>
                         <button onclick="setSimSpeed(400)" id="speed-fast" class="px-4 py-2 text-xs font-black rounded-lg border-2 border-black bg-white text-slate-950 btn-bounce pop-shadow-sm">Fast</button>
@@ -228,23 +228,23 @@
             </div>
 
             <!-- Live Play-by-Play & Simulation Console -->
-            <div class="flex-grow bg-slate-900 border-4 border-black p-5 rounded-3xl pop-shadow flex flex-col justify-between min-h-[360px]">
+            <div class="flex-grow bg-white border-4 border-black p-5 rounded-3xl pop-shadow flex flex-col justify-between min-h-[360px]">
                 <div class="flex justify-between items-center border-b-4 border-black pb-3">
-                    <h3 class="text-lg font-black uppercase tracking-wider text-amber-400">Match Simulator Log</h3>
+                    <h3 class="text-lg font-black uppercase tracking-wider text-red-600">Match Simulator Log</h3>
                     <div class="flex items-center gap-2">
-                        <span id="sim-badge" class="text-xs uppercase font-black px-3 py-1 rounded-full border-2 border-black bg-white text-slate-950 shadow-[2px_2px_0px_#000]">Idle</span>
+                        <span id="sim-badge" class="text-xs uppercase font-black px-3 py-1 rounded-full border-2 border-black bg-amber-400 text-slate-950 shadow-[2px_2px_0px_#000]">Idle</span>
                     </div>
                 </div>
 
                 <!-- Log Terminal -->
-                <div id="sim-log" class="flex-grow my-4 p-4 bg-slate-950 rounded-2xl border-4 border-black text-base font-bold font-mono overflow-y-auto max-h-[240px] custom-scrollbar flex flex-col gap-3 shadow-[inset_0_4px_8px_rgba(0,0,0,0.8)]">
-                    <div class="text-slate-400">&gt; Generating fresh beer pong table setup...</div>
+                <div id="sim-log" class="flex-grow my-4 p-4 bg-amber-50 rounded-2xl border-4 border-black text-base font-bold font-mono overflow-y-auto max-h-[240px] custom-scrollbar flex flex-col gap-3 shadow-[inset_0_4px_8px_rgba(0,0,0,0.1)] text-slate-950">
+                    <div class="text-slate-650">&gt; Generating fresh beer pong table setup...</div>
                 </div>
 
                 <!-- Simulation Action Controls -->
                 <div id="sim-controls" class="flex items-center justify-between gap-4 pt-4 border-t-4 border-black">
-                    <div class="text-base text-slate-200 font-extrabold bg-slate-950 border-2 border-black px-4 py-2 rounded-xl">
-                        Result: <span id="sim-result-badge" class="font-black text-amber-400 text-lg uppercase">--</span>
+                    <div class="text-base text-slate-950 font-black bg-amber-50 border-2 border-black px-4 py-2 rounded-xl">
+                        Result: <span id="sim-result-badge" class="font-black text-red-650 text-lg uppercase">--</span>
                     </div>
                     <button id="btn-reset" onclick="resetGame()" class="bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-lg px-8 py-4 rounded-2xl border-4 border-black transition-all duration-75 btn-bounce pop-shadow-sm flex items-center gap-2">
                         🎲 Roll New Door Layout
@@ -257,23 +257,23 @@
     </main>
 
     <!-- Interactive Game Explanation Drawer (Bottom Panel) -->
-    <section class="bg-slate-900 border-t-4 border-black py-8 px-6 shadow-2xl mt-8 m-4 md:m-6 rounded-2xl border-4">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-slate-300">
+    <section class="bg-white border-4 border-black py-8 px-6 shadow-[0_6px_0px_#000] mt-8 m-4 md:m-6 rounded-2xl">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-slate-950">
             <div>
-                <h4 class="text-amber-400 font-black text-lg uppercase tracking-wider mb-2.5">🎯 Tactical Concept</h4>
-                <p class="text-slate-200 text-base leading-relaxed font-semibold">
+                <h4 class="text-red-600 font-black text-lg uppercase tracking-wider mb-2.5">🎯 Tactical Concept</h4>
+                <p class="text-slate-900 text-base leading-relaxed font-bold">
                     In Beer Pong, you only get **one rerack** per game. While a rerack tightens the remaining cups to raise your accuracy, using it too early limits your capability to cluster cups later when split states are harder to hit.
                 </p>
             </div>
             <div>
-                <h4 class="text-amber-400 font-black text-lg uppercase tracking-wider mb-2.5">📐 Splash Zone Mechanics</h4>
-                <p class="text-slate-200 text-base leading-relaxed font-semibold">
+                <h4 class="text-red-600 font-black text-lg uppercase tracking-wider mb-2.5">📐 Splash Zone Mechanics</h4>
+                <p class="text-slate-900 text-base leading-relaxed font-bold">
                     A consolidated tight cluster (like the 3-cup triangle after reracking) allows a **"Spill-Over" chance**. If a shot slightly misses its primary target, there is a probability of land-falling into an adjacent cup!
                 </p>
             </div>
             <div>
-                <h4 class="text-amber-400 font-black text-lg uppercase tracking-wider mb-2.5">🏆 Accurate House Rules</h4>
-                <p class="text-slate-200 text-base leading-relaxed font-semibold">
+                <h4 class="text-red-600 font-black text-lg uppercase tracking-wider mb-2.5">🏆 Accurate House Rules</h4>
+                <p class="text-slate-900 text-base leading-relaxed font-bold">
                     This simulator runs full game regulations: turns with **2 shots each**, "bring-backs" on dual hits, and **Redemption opportunities** when the last cup is hit to force overtime!
                 </p>
             </div>
@@ -288,7 +288,7 @@
             <p id="modal-subtitle" class="text-xl text-slate-700 font-bold mb-6">Excellent shooting on the door table!</p>
             
             <div class="bg-amber-100 p-6 rounded-2xl text-base text-slate-900 text-left mb-8 border-4 border-black leading-relaxed shadow-inner">
-                <span class="text-red-600 font-black text-lg block mb-1">📋 Match Performance Analysis:</span>
+                <span class="text-red-650 font-black text-lg block mb-1">📋 Match Performance Analysis:</span>
                 <p id="modal-analysis" class="text-slate-900 font-bold">Dynamic post game analysis goes here...</p>
             </div>
             
@@ -567,11 +567,11 @@
             document.getElementById('btn-rerack').classList.remove('opacity-30');
             document.getElementById('btn-no-rerack').classList.remove('opacity-30');
             
-            logElement.innerHTML = `<div class="text-slate-300">&gt; Table cleared. New setup prepared! Make your Rerack decision below to shoot...</div>`;
-            document.getElementById('sim-badge').className = "text-xs uppercase font-black px-3 py-1 rounded-full border-2 border-black bg-white text-slate-950 shadow-[2px_2px_0px_#000]";
+            logElement.innerHTML = `<div class="text-slate-800">&gt; Table cleared. New setup prepared! Make your Rerack decision below to shoot...</div>`;
+            document.getElementById('sim-badge').className = "text-xs uppercase font-black px-3 py-1 rounded-full border-2 border-black bg-amber-400 text-slate-950 shadow-[2px_2px_0px_#000]";
             document.getElementById('sim-badge').innerText = "Idle";
             document.getElementById('sim-result-badge').innerText = "--";
-            document.getElementById('sim-result-badge').className = "font-extrabold text-slate-300";
+            document.getElementById('sim-result-badge').className = "font-extrabold text-slate-900";
 
             renderTable();
         }
@@ -730,7 +730,7 @@
             logElement.innerHTML = ''; 
             
             if (rerack) {
-                appendLog(`💥 "RERACK! Group those cups!" Opponent consolidates their remaining layout...`, 'text-amber-400 font-black');
+                appendLog(`💥 "RERACK! Group those cups!" Opponent consolidates their remaining layout...`, 'text-red-600 font-black');
                 playSound('bounce');
                 
                 activeOpponentCups = JSON.parse(JSON.stringify(currentScenario.opponentReracked));
@@ -743,14 +743,14 @@
                     startSimulationLoop(true);
                 }, 1000);
             } else {
-                appendLog(`🎯 "Hold layout, shooting as-is!" You conserve your single rerack option for later.`, 'text-slate-100 font-black');
+                appendLog(`🎯 "Hold layout, shooting as-is!" You conserve your single rerack option for later.`, 'text-slate-800 font-black');
                 setTimeout(() => {
                     startSimulationLoop(false);
                 }, 1000);
             }
         }
 
-        function appendLog(text, cssClass = 'text-slate-200') {
+        function appendLog(text, cssClass = 'text-slate-800') {
             const row = document.createElement('div');
             row.className = cssClass;
             row.innerHTML = `&gt; ${text}`;
@@ -822,7 +822,7 @@
             const baseOpponentAcc = 0.50; 
 
             while (isSimulating) {
-                appendLog(`--- ROUND ${turnCount} ---`, 'text-indigo-400 font-bold border-t border-slate-850 pt-3 mt-3');
+                appendLog(`--- ROUND ${turnCount} ---`, 'text-indigo-600 font-black border-t-2 border-black pt-3 mt-3');
                 
                 showStatusBanner("Your Turn to Shoot!", "text-slate-900 bg-amber-400 border-2 border-black px-3 py-1 rounded-full");
 
@@ -838,17 +838,17 @@
                         let isHit = Math.random() < basePlayerAcc;
                         let targetCup = activeOpponentCups[targetCupIndex];
                         
-                        appendLog(`You launch a high cartoon arc towards Cup #${targetCup.id}...`, 'text-slate-300');
+                        appendLog(`You launch a high cartoon arc towards Cup #${targetCup.id}...`, 'text-slate-600');
                         await animateShot('user', targetCup.x, targetCup.y, isHit);
 
                         if (isHit) {
                             targetCup.active = false;
                             playerTurnHits++;
                             activeOppCount--;
-                            appendLog(`💥 SWISH! Sunk Cup #${targetCup.id}!`, 'text-emerald-400 font-black');
+                            appendLog(`💥 SWISH! Sunk Cup #${targetCup.id}!`, 'text-emerald-600 font-black');
                             renderTable();
                         } else {
-                            appendLog(`💨 Airball! Bounced clean off.`, 'text-rose-400');
+                            appendLog(`💨 Airball! Bounced clean off.`, 'text-red-500');
                         }
                     }
 
@@ -860,17 +860,17 @@
                             let isHit = Math.random() < basePlayerAcc;
                             let targetCup = activeOpponentCups[targetCupIndex];
 
-                            appendLog(`You aim your second shot at Cup #${targetCup.id}...`, 'text-slate-300');
+                            appendLog(`You aim your second shot at Cup #${targetCup.id}...`, 'text-slate-600');
                             await animateShot('user', targetCup.x, targetCup.y, isHit);
 
                             if (isHit) {
                                 targetCup.active = false;
                                 playerTurnHits++;
                                 activeOppCount--;
-                                appendLog(`💥 BOOM! Sunk Cup #${targetCup.id}!`, 'text-emerald-400 font-black');
+                                appendLog(`💥 BOOM! Sunk Cup #${targetCup.id}!`, 'text-emerald-600 font-black');
                                 renderTable();
                             } else {
-                                appendLog(`💨 Clank! Hit the rim and popped out.`, 'text-rose-400');
+                                appendLog(`💨 Clank! Hit the rim and popped out.`, 'text-red-500');
                             }
                         }
                     }
@@ -878,19 +878,19 @@
                     // Dual hit "Bring-Back"
                     if (playerTurnHits === 2 && activeOppCount > 0) {
                         playSound('cheer');
-                        appendLog(`🔥 BRING BACKS! You hit both shots! You get 2 extra shots!`, 'text-amber-400 font-black animate-pulse');
+                        appendLog(`🔥 BRING BACKS! You hit both shots! You get 2 extra shots!`, 'text-amber-500 font-black animate-pulse');
                         
                         await delay(1000);
                         let targetCupIndex = selectRandomActiveCup(activeOpponentCups);
                         if (targetCupIndex !== -1) {
                             let isHit = Math.random() < basePlayerAcc;
                             let targetCup = activeOpponentCups[targetCupIndex];
-                            appendLog(`Extra Shot 1 targets Cup #${targetCup.id}...`, 'text-slate-300');
+                            appendLog(`Extra Shot 1 targets Cup #${targetCup.id}...`, 'text-slate-600');
                             await animateShot('user', targetCup.x, targetCup.y, isHit);
                             if (isHit) {
                                 targetCup.active = false;
                                 activeOppCount--;
-                                appendLog(`💥 Sunk! Hot streak!`, 'text-emerald-400 font-black');
+                                appendLog(`💥 Sunk! Hot streak!`, 'text-emerald-600 font-black');
                                 renderTable();
                             }
                         }
@@ -901,7 +901,7 @@
                             if (targetCupIndex !== -1) {
                                 let isHit = Math.random() < basePlayerAcc;
                                 let targetCup = activeOpponentCups[targetCupIndex];
-                                appendLog(`Extra Shot 2 targets Cup #${targetCup.id}...`, 'text-slate-300');
+                                appendLog(`Extra Shot 2 targets Cup #${targetCup.id}...`, 'text-slate-600');
                                 await animateShot('user', targetCup.x, targetCup.y, isHit);
                                 if (isHit) {
                                     targetCup.active = false;
@@ -916,11 +916,11 @@
 
                 // Check Win
                 if (activeOppCount <= 0) {
-                    appendLog(`🚨 Opponent is out of cups! Time for their Redemption shot...`, 'text-amber-450 font-bold');
+                    appendLog(`🚨 Opponent is out of cups! Time for their Redemption shot...`, 'text-red-600 font-bold');
                     
                     let opponentRedeemed = await runRedemptionLoop('opponent', baseOpponentAcc);
                     if (opponentRedeemed) {
-                        appendLog(`😱 UNBELIEVABLE! Opponent saved the game! Triggering Overtime (3-cup setups)!`, 'text-red-400 font-black animate-pulse');
+                        appendLog(`😱 UNBELIEVABLE! Opponent saved the game! Triggering Overtime (3-cup setups)!`, 'text-red-650 font-black animate-pulse');
                         triggerOvertime();
                         turnCount++;
                         continue;
@@ -931,7 +931,7 @@
                 }
 
                 // --- OPPONENT TURN (2 SHOTS) ---
-                showStatusBanner("Opponent is Aiming...", "text-rose-450 bg-white border-2 border-black px-3 py-1 rounded-full");
+                showStatusBanner("Opponent is Aiming...", "text-slate-900 bg-white border-2 border-black px-3 py-1 rounded-full");
                 await delay(1200);
 
                 let oppTurnHits = 0;
@@ -944,17 +944,17 @@
                         let isHit = Math.random() < baseOpponentAcc;
                         let targetCup = activeMyCups[targetCupIndex];
                         
-                        appendLog(`Opponent throws at your Cup #${targetCup.id}...`, 'text-slate-400');
+                        appendLog(`Opponent throws at your Cup #${targetCup.id}...`, 'text-slate-500');
                         await animateShot('opponent', targetCup.x, targetCup.y, isHit);
 
                         if (isHit) {
                             targetCup.active = false;
                             oppTurnHits++;
                             activeMyCount--;
-                            appendLog(`🎯 Splash! Opponent sunk your Cup #${targetCup.id}!`, 'text-rose-400 font-black');
+                            appendLog(`🎯 Splash! Opponent sunk your Cup #${targetCup.id}!`, 'text-red-600 font-black');
                             renderTable();
                         } else {
-                            appendLog(`💨 Opponent missed!`, 'text-slate-400');
+                            appendLog(`💨 Opponent missed!`, 'text-slate-500');
                         }
                     }
 
@@ -966,24 +966,24 @@
                             let isHit = Math.random() < baseOpponentAcc;
                             let targetCup = activeMyCups[targetCupIndex];
 
-                            appendLog(`Opponent throws second shot at your Cup #${targetCup.id}...`, 'text-slate-400');
+                            appendLog(`Opponent throws second shot at your Cup #${targetCup.id}...`, 'text-slate-500');
                             await animateShot('opponent', targetCup.x, targetCup.y, isHit);
 
                             if (isHit) {
                                 targetCup.active = false;
                                 oppTurnHits++;
                                 activeMyCount--;
-                                appendLog(`🎯 Splash! Sunk your Cup #${targetCup.id}!`, 'text-rose-400 font-black');
+                                appendLog(`🎯 Splash! Sunk your Cup #${targetCup.id}!`, 'text-red-600 font-black');
                                 renderTable();
                             } else {
-                                appendLog(`💨 Opponent missed.`, 'text-slate-400');
+                                appendLog(`💨 Opponent missed.`, 'text-slate-500');
                             }
                         }
                     }
 
                     // Opponent Bring Back
                     if (oppTurnHits === 2 && activeMyCount > 0) {
-                        appendLog(`🔥 Opponent hit both! Bring Back active! 2 more shots coming!`, 'text-rose-500 font-extrabold animate-pulse');
+                        appendLog(`🔥 Opponent hit both! Bring Back active! 2 more shots coming!`, 'text-red-650 font-black animate-pulse');
                         
                         await delay(1000);
                         let targetCupIndex = selectRandomActiveCup(activeMyCups);
@@ -994,7 +994,7 @@
                             if (isHit) {
                                 targetCup.active = false;
                                 activeMyCount--;
-                                appendLog(`🎯 Splash! Sunk.`, 'text-rose-400 font-black');
+                                appendLog(`🎯 Splash! Sunk.`, 'text-red-600 font-black');
                                 renderTable();
                             }
                         }
@@ -1009,7 +1009,7 @@
                                 if (isHit) {
                                     targetCup.active = false;
                                     activeMyCount--;
-                                    appendLog(`🎯 Splash! Sunk.`, 'text-rose-400 font-black');
+                                    appendLog(`🎯 Splash! Sunk.`, 'text-red-600 font-black');
                                     renderTable();
                                 }
                             }
@@ -1023,7 +1023,7 @@
                     
                     let userRedeemed = await runRedemptionLoop('user', basePlayerAcc);
                     if (userRedeemed) {
-                        appendLog(`🔥 GAME SAVED! Outstanding clutch redemption! Triggering Overtime (3-cup layouts)!`, 'text-emerald-400 font-black animate-pulse');
+                        appendLog(`🔥 GAME SAVED! Outstanding clutch redemption! Triggering Overtime (3-cup setups)!`, 'text-emerald-600 font-black animate-pulse');
                         triggerOvertime();
                     } else {
                         endGame(false, usedRerack);
@@ -1033,7 +1033,7 @@
 
                 turnCount++;
                 if (turnCount > 15) {
-                    appendLog(`🏁 Game dragged on too long! Both teams agreed to shake hands.`, 'text-slate-350');
+                    appendLog(`🏁 Game dragged on too long! Both teams agreed to shake hands.`, 'text-slate-500');
                     endGame(null, usedRerack);
                     break;
                 }
@@ -1047,7 +1047,7 @@
             let success = false;
 
             if (side === 'user') {
-                showStatusBanner("REDEMPTION! SHOOT UNTIL YOU MISS!", "text-emerald-400 bg-slate-950 border-4 border-black p-2 rounded-xl animate-pulse");
+                showStatusBanner("REDEMPTION! SHOOT UNTIL YOU MISS!", "text-emerald-650 bg-white border-4 border-black p-2 rounded-xl animate-pulse");
                 let remainingTargetCups = activeOpponentCups.filter(c => c.active);
                 
                 while (stillRedeeming && remainingTargetCups.length > 0) {
@@ -1055,25 +1055,25 @@
                     let targetCup = remainingTargetCups[0];
                     let isHit = Math.random() < accuracy;
                     
-                    appendLog(`[Redemption] Launching at Cup #${targetCup.id}...`, 'text-amber-400');
+                    appendLog(`[Redemption] Launching at Cup #${targetCup.id}...`, 'text-amber-500');
                     await animateShot('user', targetCup.x, targetCup.y, isHit);
 
                     if (isHit) {
                         targetCup.active = false;
                         remainingTargetCups.shift();
-                        appendLog(`💥 HIT! Sunk Redemption Cup #${targetCup.id}! Next one!`, 'text-emerald-400 font-extrabold');
+                        appendLog(`💥 HIT! Sunk Redemption Cup #${targetCup.id}! Next one!`, 'text-emerald-600 font-black');
                         renderTable();
                         if (remainingTargetCups.length === 0) {
                             success = true;
                             stillRedeeming = false;
                         }
                     } else {
-                        appendLog(`💨 Off-target! Missed redemption. Game Over!`, 'text-rose-400');
+                        appendLog(`💨 Off-target! Missed redemption. Game Over!`, 'text-red-500');
                         stillRedeeming = false;
                     }
                 }
             } else {
-                showStatusBanner("OPPONENT REDEMPTION THROW", "text-rose-450 bg-slate-950 border-4 border-black p-2 animate-pulse");
+                showStatusBanner("OPPONENT REDEMPTION THROW", "text-red-650 bg-white border-4 border-black p-2 animate-pulse");
                 let remainingTargetCups = activeMyCups.filter(c => c.active);
 
                 while (stillRedeeming && remainingTargetCups.length > 0) {
@@ -1081,20 +1081,20 @@
                     let targetCup = remainingTargetCups[0];
                     let isHit = Math.random() < accuracy;
 
-                    appendLog(`[Redemption] Opponent shoots at Cup #${targetCup.id}...`, 'text-rose-350');
+                    appendLog(`[Redemption] Opponent shoots at Cup #${targetCup.id}...`, 'text-slate-700');
                     await animateShot('opponent', targetCup.x, targetCup.y, isHit);
 
                     if (isHit) {
                         targetCup.active = false;
                         remainingTargetCups.shift();
-                        appendLog(`🎯 Splash! Opponent hit Redemption Cup #${targetCup.id}!`, 'text-rose-400 font-bold');
+                        appendLog(`🎯 Splash! Opponent hit Redemption Cup #${targetCup.id}!`, 'text-red-600 font-black');
                         renderTable();
                         if (remainingTargetCups.length === 0) {
                             success = true;
                             stillRedeeming = false;
                         }
                     } else {
-                        appendLog(`💨 Opponent missed redemption! Game Over!`, 'text-slate-350');
+                        appendLog(`💨 Opponent missed redemption! Game Over!`, 'text-slate-500');
                         stillRedeeming = false;
                     }
                 }
@@ -1156,7 +1156,7 @@
         // Conclude Simulation Loop
         function endGame(playerWon, usedRerack) {
             isSimulating = false;
-            document.getElementById('sim-badge').className = "text-xs uppercase font-black px-3 py-1 rounded bg-slate-850 text-slate-300";
+            document.getElementById('sim-badge').className = "text-xs uppercase font-black px-3 py-1 rounded bg-slate-200 text-slate-950";
             document.getElementById('sim-badge').innerText = "Finished";
 
             const modal = document.getElementById('endgame-modal');
@@ -1169,9 +1169,9 @@
 
             if (playerWon === true) {
                 playSound('cheer');
-                appendLog(`🎉 VICTORY! YOU WON THE MATCH!`, 'text-emerald-400 font-black text-base border-t border-slate-800/60 pt-4 mt-4');
+                appendLog(`🎉 VICTORY! YOU WON THE MATCH!`, 'text-emerald-600 font-black text-base border-t border-slate-800/60 pt-4 mt-4');
                 document.getElementById('sim-result-badge').innerText = "🏆 WON";
-                document.getElementById('sim-result-badge').className = "font-black text-emerald-400 text-lg";
+                document.getElementById('sim-result-badge').className = "font-black text-emerald-600 text-lg";
                 
                 modalEmoji.innerText = "🏆";
                 modalTitle.innerText = "YOU WON THE MATCH!";
@@ -1185,9 +1185,9 @@
                 }
             } else if (playerWon === false) {
                 playSound('miss');
-                appendLog(`💀 DEFEAT! Opponent wins. Clean off the table!`, 'text-rose-450 font-black text-base border-t border-slate-800/60 pt-4 mt-4');
+                appendLog(`💀 DEFEAT! Opponent wins. Clean off the table!`, 'text-red-500 font-black text-base border-t border-slate-800/60 pt-4 mt-4');
                 document.getElementById('sim-result-badge').innerText = "💀 LOST";
-                document.getElementById('sim-result-badge').className = "font-black text-rose-500 text-lg";
+                document.getElementById('sim-result-badge').className = "font-black text-red-600 text-lg";
 
                 modalEmoji.innerText = "💀";
                 modalTitle.innerText = "OPPONENT WINS";
@@ -1201,11 +1201,11 @@
                 }
             } else {
                 document.getElementById('sim-result-badge').innerText = "🤝 TIE";
-                document.getElementById('sim-result-badge').className = "font-black text-slate-300 text-lg";
+                document.getElementById('sim-result-badge').className = "font-black text-slate-500 text-lg";
                 
                 modalEmoji.innerText = "🤝";
                 modalTitle.innerText = "IT'S A DRAW!";
-                modalTitle.className = "text-4xl md:text-5xl font-black text-slate-400 title-font mb-3";
+                modalTitle.className = "text-4xl md:text-5xl font-black text-slate-500 title-font mb-3";
                 modalSubtitle.innerText = "Both sides hit standard turn limits.";
                 analysisText = "A rare marathon match! Both players ran standard double-turn rules up to limit capacity without settling final redemption parameters.";
             }
