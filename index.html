@@ -66,7 +66,7 @@
                 <div>
                     <h1 class="text-3xl md:text-5xl font-black text-slate-950 title-font tracking-wide flex items-center gap-2 select-none">
                         RERACK OR NOT? 
-                        <span class="text-xs bg-red-650 text-white border-2 border-black px-3 py-1 rounded-full tracking-normal font-sans font-black pop-shadow-sm rotate-2">redplasticcups.com</span>
+                        <span class="text-xs bg-red-600 text-white border-2 border-black px-3 py-1 rounded-full tracking-normal font-sans font-black pop-shadow-sm rotate-2">redplasticcups.com</span>
                     </h1>
                     <p class="text-sm md:text-base text-slate-950 font-extrabold tracking-wide mt-1">Strategic Beer Pong Match Simulator & Arcade</p>
                 </div>
@@ -171,7 +171,7 @@
                     </div>
                     
                     <div class="flex flex-col xs:flex-row gap-3 w-full md:w-auto">
-                        <button id="btn-rerack" onclick="makeDecision(true)" class="flex-1 md:flex-initial bg-red-650 hover:bg-red-500 text-white font-black text-base xs:text-lg sm:text-xl px-4 py-3 sm:px-10 sm:py-4.5 rounded-2xl border-4 border-black transition-all duration-75 btn-bounce pop-shadow-sm whitespace-nowrap">
+                        <button id="btn-rerack" onclick="makeDecision(true)" class="flex-1 md:flex-initial bg-red-600 hover:bg-red-500 text-white font-black text-base xs:text-lg sm:text-xl px-4 py-3 sm:px-10 sm:py-4.5 rounded-2xl border-4 border-black transition-all duration-75 btn-bounce pop-shadow-sm whitespace-nowrap">
                             💥 RERACK
                         </button>
                         <button id="btn-no-rerack" onclick="makeDecision(false)" class="flex-1 md:flex-initial bg-white hover:bg-slate-100 text-slate-950 font-black text-base xs:text-lg sm:text-xl px-4 py-3 sm:px-8 sm:py-4.5 rounded-2xl border-4 border-black transition-all duration-75 btn-bounce pop-shadow-sm whitespace-nowrap">
@@ -236,7 +236,7 @@
 
                 <!-- Log Terminal -->
                 <div id="sim-log" class="flex-grow my-4 p-4 bg-amber-50 rounded-2xl border-4 border-black text-base font-bold font-mono overflow-y-auto max-h-[240px] custom-scrollbar flex flex-col gap-3 shadow-[inset_0_4px_8px_rgba(0,0,0,0.1)] text-slate-950">
-                    <div class="text-slate-650">&gt; Generating fresh beer pong table setup...</div>
+                    <div class="text-slate-655">&gt; Generating fresh beer pong table setup...</div>
                 </div>
 
                 <!-- Simulation Action Controls -->
@@ -286,7 +286,7 @@
             <p id="modal-subtitle" class="text-xl text-slate-700 font-bold mb-6">Excellent shooting on the door table!</p>
             
             <div class="bg-amber-100 p-6 rounded-2xl text-base text-slate-900 text-left mb-8 border-4 border-black leading-relaxed shadow-inner">
-                <span class="text-red-600 font-black text-lg block mb-1">📋 Match Performance Analysis:</span>
+                <span class="text-red-650 font-black text-lg block mb-1">📋 Match Performance Analysis:</span>
                 <p id="modal-analysis" class="text-slate-900 font-bold">Dynamic post game analysis goes here...</p>
             </div>
             
@@ -728,7 +728,7 @@
             logElement.innerHTML = ''; 
             
             if (rerack) {
-                appendLog(`💥 "RERACK! Group those cups!" Opponent consolidates their remaining layout...`, 'text-[#dc2626] font-black');
+                appendLog(`💥 "RERACK! Group those cups!" Opponent consolidates their remaining layout...`, 'text-red-600 font-black');
                 playSound('bounce');
                 
                 activeOpponentCups = JSON.parse(JSON.stringify(currentScenario.opponentReracked));
@@ -853,10 +853,11 @@
                     // Shot 2
                     if (activeOppCount > 0) {
                         await delay(800);
-                        let targetCupIndex = selectRandomActiveCup(activeOpponentCups);
-                        if (targetCupIndex !== -1) {
+                        let targetCupIndex = selectRandomActiveCup(activeMyCups); // corrected reference
+                        let targetOppCupIndex = selectRandomActiveCup(activeOpponentCups);
+                        if (targetOppCupIndex !== -1) {
                             let isHit = Math.random() < basePlayerAcc;
-                            let targetCup = activeOpponentCups[targetCupIndex];
+                            let targetCup = activeOpponentCups[targetOppCupIndex];
 
                             appendLog(`You aim your second shot at Cup #${targetCup.id}...`, 'text-slate-600');
                             await animateShot('user', targetCup.x, targetCup.y, isHit);
