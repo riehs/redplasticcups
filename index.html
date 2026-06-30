@@ -7,56 +7,78 @@
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Outfit:wght@300;400;600;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Outfit:wght@400;600;800;900&display=swap');
         
         body {
             font-family: 'Outfit', sans-serif;
-            background-color: #0b1329;
-            background-image: radial-gradient(circle at 50% 50%, #111a36 0%, #070a14 100%);
+            background-color: #0f172a;
+            background-image: 
+                radial-gradient(circle at 20% 20%, #1e293b 0%, transparent 40%),
+                radial-gradient(circle at 80% 80%, #0f172a 0%, #020617 100%);
         }
         
         .title-font {
             font-family: 'Fredoka One', cursive;
         }
 
-        /* Customize scrollbars for logs */
+        /* Comic pop shadows and depth */
+        .pop-shadow {
+            box-shadow: 6px 6px 0px 0px #000;
+        }
+        .pop-shadow-sm {
+            box-shadow: 4px 4px 0px 0px #000;
+        }
+        .pop-shadow-lg {
+            box-shadow: 10px 10px 0px 0px #000;
+        }
+        
+        .btn-bounce:active {
+            transform: translateY(4px) translateX(4px);
+            box-shadow: 2px 2px 0px 0px #000;
+        }
+
+        /* Custom Cartoon Scrollbars */
         .custom-scrollbar::-webkit-scrollbar {
-            width: 10px;
+            width: 12px;
         }
         .custom-scrollbar::-webkit-scrollbar-track {
-            background: rgba(15, 23, 42, 0.5);
+            background: #1e293b;
+            border: 3px solid #000;
+            border-radius: 8px;
         }
         .custom-scrollbar::-webkit-scrollbar-thumb {
             background: #f59e0b;
-            border-radius: 5px;
+            border: 3px solid #000;
+            border-radius: 8px;
         }
         .custom-scrollbar::-webkit-scrollbar-thumb:hover {
             background: #d97706;
         }
     </style>
 </head>
-<body class="text-slate-100 min-h-screen flex flex-col justify-between overflow-x-hidden selection:bg-amber-500 selection:text-slate-900">
+<body class="text-slate-100 min-h-screen flex flex-col justify-between overflow-x-hidden selection:bg-yellow-400 selection:text-slate-900 pb-8">
 
     <!-- Header -->
-    <header class="bg-slate-950/80 border-b border-slate-800 py-6 px-6 shadow-xl z-10 relative backdrop-blur-md">
-        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
+    <header class="bg-amber-400 border-4 border-black py-5 px-6 shadow-[0_6px_0px_#000] z-10 relative m-4 md:m-6 rounded-2xl">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
             <div class="flex items-center gap-4">
-                <span class="text-5xl filter drop-shadow-[0_2px_8px_rgba(245,158,11,0.2)]">🔴</span>
+                <span class="text-5xl filter drop-shadow-[4px_4px_0px_rgba(0,0,0,1)]">🔴</span>
                 <div>
-                    <h1 class="text-3xl md:text-4xl font-extrabold text-amber-500 title-font tracking-wide flex items-center gap-2">
-                        RERACK OR NOT? <span class="text-sm bg-slate-800 text-slate-300 px-3 py-1 rounded tracking-normal font-sans">TACTICAL SIMULATOR</span>
+                    <h1 class="text-3xl md:text-5xl font-black text-slate-950 title-font tracking-wide flex items-center gap-2 select-none">
+                        RERACK OR NOT? 
+                        <span class="text-xs bg-red-600 text-white border-2 border-black px-3 py-1 rounded-full tracking-normal font-sans font-black pop-shadow-sm rotate-2">redplasticcups.com</span>
                     </h1>
-                    <p class="text-base text-slate-350 font-medium tracking-wide">A physics-based strategic beer pong match simulator</p>
+                    <p class="text-sm md:text-base text-slate-900 font-extrabold tracking-wide mt-1">Strategic Beer Pong Match Simulator & Arcade</p>
                 </div>
             </div>
             
             <div class="flex items-center gap-4">
-                <div class="bg-slate-900/90 px-5 py-2 rounded-full border border-slate-800 flex items-center gap-3 shadow-inner">
-                    <span class="w-3.5 h-3.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                    <span id="current-scenario-title" class="text-sm font-bold text-emerald-400 uppercase tracking-wider">Scenario: Loading...</span>
+                <div class="bg-white px-5 py-2.5 rounded-full border-4 border-black flex items-center gap-3 shadow-[4px_4px_0px_#000]">
+                    <span class="w-4 h-4 rounded-full bg-emerald-500 border-2 border-black animate-ping"></span>
+                    <span id="current-scenario-title" class="text-sm font-black text-slate-950 uppercase tracking-wider">Scenario: Loading...</span>
                 </div>
                 <!-- Audio Toggle -->
-                <button id="btn-sound" class="p-3 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-300 transition shadow-md text-xl animate-pulse" title="Toggle Sound">
+                <button id="btn-sound" class="p-3 rounded-xl bg-white hover:bg-slate-100 border-4 border-black text-slate-950 transition-all duration-75 btn-bounce pop-shadow-sm text-2xl font-black" title="Toggle Sound">
                     🔊
                 </button>
             </div>
@@ -64,54 +86,55 @@
     </header>
 
     <!-- Main Workspace -->
-    <main class="flex-grow max-w-7xl w-full mx-auto p-4 md:p-6 grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 md:px-6 grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
         
-        <!-- Left Side: Clean Wood Door Table & Interactive Layout (7 Cols) -->
-        <div class="lg:col-span-7 flex flex-col bg-slate-950/40 backdrop-blur-md rounded-2xl border border-slate-800 p-5 md:p-6 shadow-2xl relative min-h-[600px] justify-between">
+        <!-- Left Side: Cartoon Wood Door Table (7 Cols) -->
+        <div class="lg:col-span-7 flex flex-col bg-slate-900 border-4 border-black p-5 md:p-6 rounded-3xl pop-shadow relative min-h-[620px] justify-between">
             
-            <div class="mb-4">
-                <h3 class="text-lg font-extrabold uppercase tracking-wider text-amber-500">Door Table Layout</h3>
-                <p class="text-sm md:text-base text-slate-300 leading-relaxed mt-1.5" id="scenario-description">Generating standard random scattered positions based on classic match configurations...</p>
+            <div class="mb-4 bg-slate-950 p-4 border-4 border-black rounded-2xl pop-shadow-sm">
+                <h3 class="text-lg font-black uppercase tracking-wider text-amber-400">Door Table Layout</h3>
+                <p class="text-sm md:text-base text-slate-200 leading-relaxed mt-1" id="scenario-description">Generating standard random scattered positions based on classic match configurations...</p>
             </div>
 
             <!-- Beer Pong Table Area -->
-            <div class="relative flex-grow flex items-center justify-center bg-slate-950/60 rounded-2xl p-5 overflow-hidden border border-slate-800/50 min-h-[410px]">
+            <div class="relative flex-grow flex items-center justify-center bg-slate-950 border-4 border-black rounded-3xl p-5 overflow-hidden min-h-[430px] shadow-[inset_0_4px_10px_rgba(0,0,0,0.8)]">
                 
-                <!-- CLEAN MINIMALIST WOOD DOOR TABLE -->
-                <div class="w-full max-w-[330px] aspect-[1/2] bg-[#78350f] rounded-sm border-8 border-[#451a03] shadow-2xl relative flex flex-col justify-between py-6 px-4 ring-2 ring-slate-800/50">
+                <!-- CARTOON OAK WOOD DOOR TABLE -->
+                <div class="w-full max-w-[330px] aspect-[1/2] bg-[#b45309] rounded-xl border-[6px] border-black shadow-[0_12px_24px_rgba(0,0,0,0.8)] relative flex flex-col justify-between py-8 px-4 overflow-hidden">
                     
-                    <!-- 6 Recessed Door Panels -->
-                    <div class="absolute inset-0 p-2.5 grid grid-cols-2 grid-rows-3 gap-3 pointer-events-none opacity-20">
-                        <div class="border-[2px] border-black/80 rounded shadow-[inset_0_2px_4px_rgba(0,0,0,0.8),_0_1px_1px_rgba(255,255,255,0.05)]"></div>
-                        <div class="border-[2px] border-black/80 rounded shadow-[inset_0_2px_4px_rgba(0,0,0,0.8),_0_1px_1px_rgba(255,255,255,0.05)]"></div>
-                        <div class="border-[2px] border-black/80 rounded shadow-[inset_0_2px_4px_rgba(0,0,0,0.8),_0_1px_1px_rgba(255,255,255,0.05)]"></div>
-                        <div class="border-[2px] border-black/80 rounded shadow-[inset_0_2px_4px_rgba(0,0,0,0.8),_0_1px_1px_rgba(255,255,255,0.05)]"></div>
-                        <div class="border-[2px] border-black/80 rounded shadow-[inset_0_2px_4px_rgba(0,0,0,0.8),_0_1px_1px_rgba(255,255,255,0.05)]"></div>
-                        <div class="border-[2px] border-black/80 rounded shadow-[inset_0_2px_4px_rgba(0,0,0,0.8),_0_1px_1px_rgba(255,255,255,0.05)]"></div>
+                    <!-- Cartoon Recessed Door Panels (cel-shaded styling) -->
+                    <div class="absolute inset-0 p-3 grid grid-cols-2 grid-rows-3 gap-4 pointer-events-none">
+                        <div class="border-[4px] border-black rounded-lg bg-[#92400e]/50 shadow-[inset_4px_4px_0px_rgba(0,0,0,0.4)]"></div>
+                        <div class="border-[4px] border-black rounded-lg bg-[#92400e]/50 shadow-[inset_4px_4px_0px_rgba(0,0,0,0.4)]"></div>
+                        <div class="border-[4px] border-black rounded-lg bg-[#92400e]/50 shadow-[inset_4px_4px_0px_rgba(0,0,0,0.4)]"></div>
+                        <div class="border-[4px] border-black rounded-lg bg-[#92400e]/50 shadow-[inset_4px_4px_0px_rgba(0,0,0,0.4)]"></div>
+                        <div class="border-[4px] border-black rounded-lg bg-[#92400e]/50 shadow-[inset_4px_4px_0px_rgba(0,0,0,0.4)]"></div>
+                        <div class="border-[4px] border-black rounded-lg bg-[#92400e]/50 shadow-[inset_4px_4px_0px_rgba(0,0,0,0.4)]"></div>
                     </div>
 
-                    <!-- Doorknob Hole on Right Edge -->
-                    <div class="absolute right-1.5 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-slate-950 border-2 border-[#451a03] shadow-[inset_0_2px_3px_rgba(0,0,0,0.9)] flex items-center justify-center pointer-events-none z-10">
-                        <div class="w-1.5 h-1.5 rounded-full bg-slate-800"></div>
+                    <!-- Chunky Brass Doorknob Hole -->
+                    <div class="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-yellow-400 border-[4px] border-black shadow-[inset_2px_2px_0px_#fff,_2px_4px_0px_#000] flex items-center justify-center pointer-events-none z-10">
+                        <div class="w-2.5 h-2.5 rounded-full bg-yellow-600 border border-black"></div>
                     </div>
 
-                    <!-- Sleek Table Markings -->
-                    <div class="absolute top-1/2 left-0 right-0 h-0.5 bg-white/20"></div>
-                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full border border-dashed border-white/15 pointer-events-none"></div>
+                    <!-- Bold Painted Center Line -->
+                    <div class="absolute top-1/2 left-0 right-0 h-1.5 bg-yellow-300 border-t border-b border-black"></div>
+                    <!-- Bold Center Circle -->
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full border-[3px] border-dashed border-yellow-300 pointer-events-none"></div>
 
-                    <!-- Clean Wash Cups (💧 Water Cups to clean off the ping pong ball) -->
-                    <!-- Top-Left Wash Cup (Opponent Side) -->
-                    <div class="absolute top-2.5 left-2.5 w-8 h-8 rounded-full bg-blue-600/90 border border-blue-300 shadow-lg flex items-center justify-center pointer-events-none select-none z-10">
-                        <div class="w-6 h-6 rounded-full bg-blue-400/80 border border-white/40 flex items-center justify-center text-[10px]">💧</div>
+                    <!-- Cartoon Wash Cups with Water and splashing drop -->
+                    <!-- Top-Left Wash Cup -->
+                    <div class="absolute top-3 left-3 w-10 h-10 rounded-full bg-blue-600 border-[3px] border-black shadow-[2px_3px_0px_#000] flex items-center justify-center pointer-events-none select-none z-10">
+                        <div class="w-7 h-7 rounded-full bg-sky-300 border-2 border-white flex items-center justify-center text-xs font-bold text-slate-950 font-black">💧</div>
                     </div>
-                    <!-- Bottom-Right Wash Cup (My Side) -->
-                    <div class="absolute bottom-2.5 right-2.5 w-8 h-8 rounded-full bg-blue-600/90 border border-blue-300 shadow-lg flex items-center justify-center pointer-events-none select-none z-10">
-                        <div class="w-6 h-6 rounded-full bg-blue-400/80 border border-white/40 flex items-center justify-center text-[10px]">💧</div>
+                    <!-- Bottom-Right Wash Cup -->
+                    <div class="absolute bottom-3 right-3 w-10 h-10 rounded-full bg-blue-600 border-[3px] border-black shadow-[2px_3px_0px_#000] flex items-center justify-center pointer-events-none select-none z-10">
+                        <div class="w-7 h-7 rounded-full bg-sky-300 border-2 border-white flex items-center justify-center text-xs font-bold text-slate-950 font-black">💧</div>
                     </div>
 
                     <!-- --- OPPONENT SIDE (TOP RACK) --- -->
                     <div class="relative flex flex-col items-center">
-                        <span class="absolute -top-4 text-xs font-bold uppercase tracking-widest text-slate-350">Opponent Side</span>
+                        <span class="absolute -top-5 text-[10px] font-black uppercase tracking-wider text-slate-900 bg-amber-400 border-2 border-black px-2 py-0.5 rounded-full pop-shadow-sm select-none">Opponent</span>
                         
                         <!-- Top Rack SVG Canvas -->
                         <svg id="opponent-rack-svg" class="w-56 h-40 overflow-visible" viewBox="0 0 200 150">
@@ -126,32 +149,34 @@
                             <!-- Dynamic Content Rendered by JS -->
                         </svg>
                         
-                        <span class="absolute -bottom-4 text-xs font-bold uppercase tracking-widest text-slate-350">My Side</span>
+                        <span class="absolute -bottom-5 text-[10px] font-black uppercase tracking-wider text-slate-900 bg-amber-400 border-2 border-black px-2 py-0.5 rounded-full pop-shadow-sm select-none">Your Cups</span>
                     </div>
 
-                    <!-- Ping Pong Ball Overlay Animation Element -->
-                    <div id="flying-ball" class="absolute w-5 h-5 bg-amber-100 rounded-full shadow-[0_0_12px_#fff] border border-amber-300 hidden pointer-events-none z-30 transition-transform duration-75"></div>
+                    <!-- Cartoon Ping Pong Ball (With thick stroke and highlight) -->
+                    <div id="flying-ball" class="absolute w-6 h-6 bg-yellow-100 rounded-full border-[3px] border-black shadow-[4px_4px_0px_#000] hidden pointer-events-none z-30 transition-transform duration-75">
+                        <div class="w-1.5 h-1.5 rounded-full bg-white absolute top-1 left-1"></div>
+                    </div>
                 </div>
 
                 <!-- Simulation Visual Indicators Overlay -->
-                <div id="sim-status-banner" class="absolute top-4 left-4 right-4 bg-slate-900/95 border border-slate-800 p-4 rounded-xl text-center shadow-lg transform -translate-y-20 opacity-0 transition-all duration-300 pointer-events-none z-20">
-                    <span id="sim-status-text" class="text-base font-bold text-amber-500 uppercase tracking-wider">Opponent is aiming...</span>
+                <div id="sim-status-banner" class="absolute top-4 left-4 right-4 bg-yellow-300 border-4 border-black p-4 rounded-2xl text-center shadow-[6px_6px_0px_#000] transform -translate-y-24 opacity-0 transition-all duration-300 pointer-events-none z-20">
+                    <span id="sim-status-text" class="text-lg font-black text-slate-950 uppercase tracking-wider">Opponent is aiming...</span>
                 </div>
             </div>
 
             <!-- Interactive Decision Interface -->
-            <div id="decision-panel" class="mt-4 bg-slate-950/80 p-6 rounded-xl border border-slate-800">
+            <div id="decision-panel" class="mt-5 bg-white p-6 rounded-2xl border-4 border-black shadow-[4px_4px_0px_#000]">
                 <div class="flex flex-col md:flex-row items-center justify-between gap-6">
-                    <div>
-                        <h4 class="text-lg font-extrabold text-slate-100">Strategic Choice: Your Shot</h4>
-                        <p class="text-base text-slate-350 mt-2 leading-relaxed">Request your <strong class="text-amber-500 font-bold">1 free Rerack</strong> to group their remaining cups, or let 'em fly as they are?</p>
+                    <div class="text-slate-950">
+                        <h4 class="text-xl font-black uppercase tracking-wide">Strategic Choice: Your Shot</h4>
+                        <p class="text-base text-slate-800 mt-2 font-bold leading-relaxed">Do you request your <span class="text-red-600 font-extrabold underline decoration-2">1 free Rerack</span> to cluster their remaining cups, or shoot as they are?</p>
                     </div>
                     
                     <div class="flex gap-4 w-full md:w-auto">
-                        <button id="btn-rerack" onclick="makeDecision(true)" class="flex-1 md:flex-initial bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-lg px-10 py-4 rounded-xl transition shadow-xl shadow-amber-500/20 active:scale-95">
+                        <button id="btn-rerack" onclick="makeDecision(true)" class="flex-1 md:flex-initial bg-red-600 hover:bg-red-500 text-white font-black text-xl px-10 py-4.5 rounded-2xl border-4 border-black transition-all duration-75 btn-bounce pop-shadow-sm">
                             💥 RERACK
                         </button>
-                        <button id="btn-no-rerack" onclick="makeDecision(false)" class="flex-1 md:flex-initial bg-slate-850 hover:bg-slate-700 border border-slate-750 text-white font-bold text-lg px-8 py-4 rounded-xl transition active:scale-95">
+                        <button id="btn-no-rerack" onclick="makeDecision(false)" class="flex-1 md:flex-initial bg-slate-200 hover:bg-slate-300 text-slate-950 font-black text-xl px-8 py-4.5 rounded-2xl border-4 border-black transition-all duration-75 btn-bounce pop-shadow-sm">
                             🎯 SHOOT AS-IS
                         </button>
                     </div>
@@ -164,64 +189,64 @@
         <div class="lg:col-span-5 flex flex-col gap-6">
             
             <!-- Match Stats / Context -->
-            <div class="bg-slate-950/40 backdrop-blur-md rounded-2xl border border-slate-800 p-5 shadow-xl flex flex-col gap-4">
-                <div class="flex justify-between items-center border-b border-slate-800/80 pb-3">
-                    <h3 class="text-base font-bold uppercase tracking-wider text-slate-200">Match Analytics</h3>
-                    <span class="text-xs bg-slate-900 text-amber-500 border border-amber-500/30 font-bold px-3 py-1 rounded-full">Rerack Available</span>
+            <div class="bg-slate-900 border-4 border-black p-5 rounded-3xl pop-shadow flex flex-col gap-4">
+                <div class="flex justify-between items-center border-b-4 border-black pb-3">
+                    <h3 class="text-lg font-black uppercase tracking-wider text-amber-400">Match Analytics</h3>
+                    <span class="text-xs bg-red-600 text-white border-2 border-black font-black px-3 py-1 rounded-full pop-shadow-sm rotate-1 select-none">Rerack Available</span>
                 </div>
 
                 <div class="grid grid-cols-2 gap-4">
                     <!-- Probability Panel -->
-                    <div class="bg-slate-950/80 p-4 rounded-xl border border-slate-900 flex flex-col justify-between gap-2.5">
-                        <span class="text-sm uppercase font-bold text-slate-400 tracking-wider">Hit Probability</span>
+                    <div class="bg-white p-4 rounded-2xl border-4 border-black shadow-[4px_4px_0px_#000] flex flex-col justify-between gap-3 text-slate-950">
+                        <span class="text-sm uppercase font-black tracking-wider text-slate-500">Hit Probability</span>
                         <div class="my-1 flex items-baseline gap-1">
-                            <span id="prob-percentage" class="text-5xl font-extrabold text-amber-500">--</span>
+                            <span id="prob-percentage" class="text-5xl font-black text-red-600 filter drop-shadow-[2px_2px_0px_rgba(0,0,0,0.15)]">--</span>
                         </div>
-                        <span id="prob-explanation" class="text-sm text-slate-350 leading-relaxed">Scatter layout makes near-misses lost chances.</span>
+                        <span id="prob-explanation" class="text-sm text-slate-800 font-bold leading-normal">Scatter layout makes near-misses lost chances.</span>
                     </div>
 
                     <!-- Tactical Assessment -->
-                    <div class="bg-slate-950/80 p-4 rounded-xl border border-slate-900 flex flex-col justify-between gap-2.5">
-                        <span class="text-sm uppercase font-bold text-slate-400 tracking-wider">Decision Tip</span>
+                    <div class="bg-white p-4 rounded-2xl border-4 border-black shadow-[4px_4px_0px_#000] flex flex-col justify-between gap-3 text-slate-950">
+                        <span class="text-sm uppercase font-black tracking-wider text-slate-500">Decision Tip</span>
                         <div class="my-1">
-                            <span id="tactical-rating" class="text-xs font-extrabold text-amber-500 uppercase tracking-wide bg-amber-500/10 border border-amber-500/30 px-3 py-1.5 rounded">Highly Recommended</span>
+                            <span id="tactical-rating" class="text-xs font-black text-white uppercase tracking-wide bg-amber-500 border-2 border-black px-3 py-1.5 rounded-lg pop-shadow-sm inline-block">Highly Recommended</span>
                         </div>
-                        <span id="tactical-explanation" class="text-sm text-slate-350 leading-relaxed">Consolidating spread cups into a tight key increases overall hit success.</span>
+                        <span id="tactical-explanation" class="text-sm text-slate-800 font-bold leading-normal">Consolidating spread cups into a tight key increases overall hit success.</span>
                     </div>
                 </div>
 
                 <!-- Simulation Speed Control -->
-                <div class="bg-slate-950/50 p-4 rounded-xl border border-slate-900 flex items-center justify-between gap-4">
-                    <span class="text-sm text-slate-300 font-medium">Simulation Speed</span>
-                    <div class="flex gap-2 bg-slate-950 p-1.5 rounded-lg border border-slate-800">
-                        <button onclick="setSimSpeed(2000)" id="speed-slow" class="px-4 py-2 text-xs font-semibold rounded bg-slate-850 text-slate-300 hover:bg-slate-800">Slow</button>
-                        <button onclick="setSimSpeed(1000)" id="speed-normal" class="px-4 py-2 text-xs font-semibold rounded bg-amber-500 text-slate-950">Norm</button>
-                        <button onclick="setSimSpeed(400)" id="speed-fast" class="px-4 py-2 text-xs font-semibold rounded bg-slate-850 text-slate-300 hover:bg-slate-800">Fast</button>
-                        <button onclick="setSimSpeed(50)" id="speed-inst" class="px-4 py-2 text-xs font-semibold rounded bg-slate-850 text-slate-300 hover:bg-slate-800">Instant</button>
+                <div class="bg-slate-950 p-4 rounded-2xl border-4 border-black flex items-center justify-between gap-4">
+                    <span class="text-sm font-black text-slate-300">Simulation Speed</span>
+                    <div class="flex gap-2 bg-slate-900 p-1.5 rounded-xl border-2 border-black">
+                        <button onclick="setSimSpeed(2000)" id="speed-slow" class="px-4 py-2 text-xs font-black rounded-lg border-2 border-black bg-white text-slate-950 btn-bounce pop-shadow-sm">Slow</button>
+                        <button onclick="setSimSpeed(1000)" id="speed-normal" class="px-4 py-2 text-xs font-black rounded-lg border-2 border-black bg-amber-400 text-slate-950 btn-bounce pop-shadow-sm">Norm</button>
+                        <button onclick="setSimSpeed(400)" id="speed-fast" class="px-4 py-2 text-xs font-black rounded-lg border-2 border-black bg-white text-slate-950 btn-bounce pop-shadow-sm">Fast</button>
+                        <button onclick="setSimSpeed(50)" id="speed-inst" class="px-4 py-2 text-xs font-black rounded-lg border-2 border-black bg-white text-slate-950 btn-bounce pop-shadow-sm">Instant</button>
                     </div>
                 </div>
             </div>
 
             <!-- Live Play-by-Play & Simulation Console -->
-            <div class="flex-grow bg-slate-950/40 backdrop-blur-md rounded-2xl border border-slate-800 p-5 shadow-xl flex flex-col justify-between min-h-[350px]">
-                <div class="flex justify-between items-center border-b border-slate-800/80 pb-3">
-                    <h3 class="text-base font-bold uppercase tracking-wider text-slate-200">Match Simulator Log</h3>
+            <div class="flex-grow bg-slate-900 border-4 border-black p-5 rounded-3xl pop-shadow flex flex-col justify-between min-h-[360px]">
+                <div class="flex justify-between items-center border-b-4 border-black pb-3">
+                    <h3 class="text-lg font-black uppercase tracking-wider text-amber-400">Match Simulator Log</h3>
                     <div class="flex items-center gap-2">
-                        <span id="sim-badge" class="text-xs uppercase font-bold px-3 py-1 rounded bg-slate-900 text-slate-400">Idle</span>
+                        <span id="sim-badge" class="text-xs uppercase font-black px-3 py-1 rounded-full border-2 border-black bg-white text-slate-950 shadow-[2px_2px_0px_#000]">Idle</span>
                     </div>
                 </div>
 
                 <!-- Log Terminal -->
-                <div id="sim-log" class="flex-grow my-4 p-4.5 bg-slate-950 rounded-xl border border-slate-900 text-base font-semibold font-mono overflow-y-auto max-h-[240px] custom-scrollbar flex flex-col gap-3">
-                    <div class="text-slate-450">&gt; Generating fresh beer pong table setup...</div>
+                <div id="sim-log" class="flex-grow my-4 p-4 bg-slate-950 rounded-2xl border-4 border-black text-base font-bold font-mono overflow-y-auto max-h-[240px] custom-scrollbar flex flex-col gap-3 shadow-[inset_0_4px_8px_rgba(0,0,0,0.8)]">
+                    <div class="text-slate-400">&gt; Generating fresh beer pong table setup...</div>
                 </div>
 
                 <!-- Simulation Action Controls -->
-                <div id="sim-controls" class="flex items-center justify-between gap-4 pt-4 border-t border-slate-800/85">
-                    <div class="text-base text-slate-350 font-semibold">
-                        Result: <span id="sim-result-badge" class="font-extrabold text-amber-500 text-lg">--</span>
+                <div id="sim-controls" class="flex items-center justify-between gap-4 pt-4 border-t-4 border-black">
+                    <div class="text-base text-slate-200 font-extrabold bg-slate-950 border-2 border-black px-4 py-2 rounded-xl">
+                        Result: <span id="sim-result-badge" class="font-black text-amber-400 text-lg uppercase">--</span>
                     </div>
-                    <button id="btn-reset" onclick="resetGame()" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold text-base px-6 py-3.5 rounded-xl transition shadow-xl shadow-amber-500/25 active:scale-95 flex items-center gap-2">
+                    <button id="btn-reset" onclick="resetGame()" class="bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-lg px-8 py-4 rounded-2xl border-4 border-black transition-all duration-75 btn-bounce pop-shadow-sm flex items-center gap-2">
                         🎲 Roll New Door Layout
                     </button>
                 </div>
@@ -232,23 +257,23 @@
     </main>
 
     <!-- Interactive Game Explanation Drawer (Bottom Panel) -->
-    <section class="bg-slate-950 border-t border-slate-800 py-8 px-6 shadow-2xl mt-6 z-10">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+    <section class="bg-slate-900 border-t-4 border-black py-8 px-6 shadow-2xl mt-8 m-4 md:m-6 rounded-2xl border-4">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-slate-300">
             <div>
-                <h4 class="text-amber-500 font-bold text-base uppercase tracking-wider mb-2.5">🎯 Tactical Concept</h4>
-                <p class="text-slate-350 text-sm md:text-base leading-relaxed">
+                <h4 class="text-amber-400 font-black text-lg uppercase tracking-wider mb-2.5">🎯 Tactical Concept</h4>
+                <p class="text-slate-200 text-base leading-relaxed font-semibold">
                     In Beer Pong, you only get **one rerack** per game. While a rerack tightens the remaining cups to raise your accuracy, using it too early limits your capability to cluster cups later when split states are harder to hit.
                 </p>
             </div>
             <div>
-                <h4 class="text-amber-500 font-bold text-base uppercase tracking-wider mb-2.5">📐 Splash Zone Mechanics</h4>
-                <p class="text-slate-350 text-sm md:text-base leading-relaxed">
+                <h4 class="text-amber-400 font-black text-lg uppercase tracking-wider mb-2.5">📐 Splash Zone Mechanics</h4>
+                <p class="text-slate-200 text-base leading-relaxed font-semibold">
                     A consolidated tight cluster (like the 3-cup triangle after reracking) allows a **"Spill-Over" chance**. If a shot slightly misses its primary target, there is a probability of land-falling into an adjacent cup!
                 </p>
             </div>
             <div>
-                <h4 class="text-amber-500 font-bold text-base uppercase tracking-wider mb-2.5">🏆 Accurate House Rules</h4>
-                <p class="text-slate-350 text-sm md:text-base leading-relaxed">
+                <h4 class="text-amber-400 font-black text-lg uppercase tracking-wider mb-2.5">🏆 Accurate House Rules</h4>
+                <p class="text-slate-200 text-base leading-relaxed font-semibold">
                     This simulator runs full game regulations: turns with **2 shots each**, "bring-backs" on dual hits, and **Redemption opportunities** when the last cup is hit to force overtime!
                 </p>
             </div>
@@ -256,19 +281,19 @@
     </section>
 
     <!-- Endgame Massive Modal Overlay -->
-    <div id="endgame-modal" class="fixed inset-0 bg-slate-950/90 backdrop-blur-md flex items-center justify-center z-50 hidden transition-all duration-300 opacity-0">
-        <div class="bg-slate-900 border-2 border-amber-500/80 p-8 md:p-10 rounded-3xl max-w-lg w-full mx-4 shadow-2xl text-center transform scale-95 transition-transform duration-300">
-            <span id="modal-emoji" class="text-8xl block mb-6 filter drop-shadow-[0_4px_12px_rgba(245,158,11,0.3)]">🏆</span>
-            <h2 id="modal-title" class="text-4xl md:text-5xl font-extrabold text-amber-500 title-font mb-3">YOU WON!</h2>
-            <p id="modal-subtitle" class="text-lg md:text-xl text-slate-300 mb-6">Excellent shooting on the door table!</p>
+    <div id="endgame-modal" class="fixed inset-0 bg-slate-950/95 backdrop-blur-md flex items-center justify-center z-50 hidden transition-all duration-300 opacity-0">
+        <div class="bg-white border-8 border-black p-8 md:p-10 rounded-[36px] max-w-xl w-full mx-4 shadow-2xl text-center transform scale-95 transition-transform duration-300 pop-shadow-lg text-slate-950">
+            <span id="modal-emoji" class="text-9xl block mb-6 filter drop-shadow-[4px_4px_0px_#000]">🏆</span>
+            <h2 id="modal-title" class="text-5xl md:text-6xl font-black text-slate-950 title-font mb-3 uppercase">YOU WON!</h2>
+            <p id="modal-subtitle" class="text-xl text-slate-700 font-bold mb-6">Excellent shooting on the door table!</p>
             
-            <div class="bg-slate-950 p-5 rounded-2xl text-base text-slate-300 text-left mb-8 border border-slate-800 leading-relaxed shadow-inner">
-                <span class="text-amber-500 font-bold block mb-1">📋 Match Performance Analysis:</span>
-                <p id="modal-analysis" class="text-slate-300">Dynamic post game analysis goes here...</p>
+            <div class="bg-amber-100 p-6 rounded-2xl text-base text-slate-900 text-left mb-8 border-4 border-black leading-relaxed shadow-inner">
+                <span class="text-red-600 font-black text-lg block mb-1">📋 Match Performance Analysis:</span>
+                <p id="modal-analysis" class="text-slate-900 font-bold">Dynamic post game analysis goes here...</p>
             </div>
             
             <div class="flex justify-center">
-                <button onclick="closeModalAndReset()" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-lg px-10 py-4 rounded-xl transition shadow-2xl shadow-amber-500/40 active:scale-95 flex items-center gap-2">
+                <button onclick="closeModalAndReset()" class="bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-2xl px-12 py-5 rounded-2xl border-4 border-black transition-all duration-75 btn-bounce pop-shadow-sm flex items-center gap-2">
                     🎲 Roll New Door Layout
                 </button>
             </div>
@@ -283,9 +308,9 @@
         document.getElementById('btn-sound').addEventListener('click', () => {
             soundEnabled = !soundEnabled;
             document.getElementById('btn-sound').innerText = soundEnabled ? '🔊' : '🔇';
-            document.getElementById('btn-sound').classList.toggle('bg-slate-900');
-            document.getElementById('btn-sound').classList.toggle('bg-red-950/40');
-            document.getElementById('btn-sound').classList.toggle('border-red-900/50');
+            document.getElementById('btn-sound').classList.toggle('bg-white');
+            document.getElementById('btn-sound').classList.toggle('bg-red-500');
+            document.getElementById('btn-sound').classList.toggle('text-white');
         });
 
         function playSound(type) {
@@ -381,10 +406,8 @@
 
         // Procedural Match Scenario Generator
         function generateRandomScenario() {
-            // Select random remaining cups count for opponent (2, 3, or 4 are standard Rerack triggers)
             const oppCount = [2, 3, 4][Math.floor(Math.random() * 3)];
             
-            // All 6 potential cup definitions on standard 200x150 top rack relative canvas
             const cupCoords = [
                 { id: 0, x: 100, y: 115 }, // Front Center
                 { id: 1, x: 80, y: 85 },   // Mid Left
@@ -394,7 +417,6 @@
                 { id: 5, x: 140, y: 55 }   // Back Right
             ];
 
-            // My standard bottom rack relative positions
             const myCupCoords = [
                 { id: 0, x: 100, y: 35 },
                 { id: 1, x: 80, y: 65 },
@@ -407,43 +429,41 @@
             let chosenIndices = [];
             if (oppCount === 3) {
                 const scatterPresets = [
-                    [0, 4, 5], // Front, Back Center, Back Right
-                    [3, 5, 0], // Wide triangle split
-                    [1, 2, 4], // Hollow line
-                    [3, 1, 5]  // Left slant + far right
+                    [0, 4, 5], 
+                    [3, 5, 0], 
+                    [1, 2, 4], 
+                    [3, 1, 5]  
                 ];
                 chosenIndices = scatterPresets[Math.floor(Math.random() * scatterPresets.length)];
             } else if (oppCount === 4) {
                 const scatterPresets = [
-                    [0, 3, 4, 5], // Front + entire back row
-                    [1, 2, 3, 5], // Middle row + back corners
-                    [0, 1, 3, 5], // Left slant heavy
-                    [0, 2, 3, 5]  // Right slant heavy
+                    [0, 3, 4, 5], 
+                    [1, 2, 3, 5], 
+                    [0, 1, 3, 5], 
+                    [0, 2, 3, 5]  
                 ];
                 chosenIndices = scatterPresets[Math.floor(Math.random() * scatterPresets.length)];
-            } else { // oppCount === 2
+            } else { 
                 const scatterPresets = [
-                    [3, 5], // Back corners wide split
-                    [0, 4], // Front & back center
-                    [1, 2]  // Wide middle split
+                    [3, 5], 
+                    [0, 4], 
+                    [1, 2]  
                 ];
                 chosenIndices = scatterPresets[Math.floor(Math.random() * scatterPresets.length)];
             }
 
-            // Build active/inactive states for Opponent's layout
             const oppCups = cupCoords.map(coord => ({
                 ...coord,
                 active: chosenIndices.includes(coord.id)
             }));
 
-            // Build corresponding tight Reracked consolidated layouts
             let rerackedIndices = [];
             if (oppCount === 3) {
-                rerackedIndices = [0, 1, 2]; // Tight front triangle
+                rerackedIndices = [0, 1, 2]; 
             } else if (oppCount === 4) {
-                rerackedIndices = [0, 1, 2, 4]; // Tight diamond layout
-            } else { // oppCount === 2
-                rerackedIndices = [0, 4]; // Tight back-to-back line
+                rerackedIndices = [0, 1, 2, 4]; 
+            } else { 
+                rerackedIndices = [0, 4]; 
             }
 
             const oppReracked = cupCoords.map(coord => ({
@@ -451,7 +471,6 @@
                 active: rerackedIndices.includes(coord.id)
             }));
 
-            // Generate random remaining user cups (between 1 and 5)
             const myCount = Math.floor(Math.random() * 5) + 1;
             let myIndices = [];
             const pool = [0, 1, 2, 3, 4, 5];
@@ -466,16 +485,14 @@
                 active: myIndices.includes(coord.id)
             }));
 
-            // Calculate dynamic hit probabilities
-            const baseChanceAsIs = 30 + Math.floor(Math.random() * 15); // 30% - 45% (hard to hit scattered targets)
-            const baseChanceRerack = 65 + Math.floor(Math.random() * 15); // 65% - 80% (high tight-cluster accuracy)
+            const baseChanceAsIs = 30 + Math.floor(Math.random() * 15); 
+            const baseChanceRerack = 65 + Math.floor(Math.random() * 15); 
 
-            // Determine dynamic tactical feedback
             let recommendation = "Highly Recommended";
             let explanation = "";
 
             if (oppCount === 3) {
-                explanation = "Opponent's 3 remaining cups are scattered wide across the table. Reracking groups them into a tight standard triangle, enabling adjacent splash hits on near-misses.";
+                explanation = "Opponent's remaining 3 cups are scattered across the door table. Reracking groups them into a tight standard triangle, enabling adjacent splash hits on near-misses.";
             } else if (oppCount === 4) {
                 if (Math.random() > 0.5) {
                     recommendation = "Highly Recommended";
@@ -484,7 +501,7 @@
                     recommendation = "Decline (Save It)";
                     explanation = "You only get 1 Rerack. With 4 cups still up, you might want to wait until they are down to 3 or 2 cups where splits are even more punishing.";
                 }
-            } else { // 2 cups
+            } else { 
                 explanation = "A 2-cup split is extremely difficult. Consolidating them into a tight front-to-back column maximizes your depth of field.";
             }
 
@@ -512,53 +529,46 @@
             speeds.forEach(s => {
                 const btn = document.getElementById(s.id);
                 if (s.val === speedMs) {
-                    btn.className = "px-4 py-2 text-xs font-bold rounded bg-amber-500 text-slate-950";
+                    btn.className = "px-4 py-2 text-xs font-black rounded-lg border-2 border-black bg-amber-400 text-slate-950 btn-bounce pop-shadow-sm";
                 } else {
-                    btn.className = "px-4 py-2 text-xs font-semibold rounded bg-slate-800 text-slate-300 hover:bg-slate-750";
+                    btn.className = "px-4 py-2 text-xs font-semibold rounded-lg border-2 border-black bg-white text-slate-950 btn-bounce pop-shadow-sm";
                 }
             });
         }
 
         function resetGame() {
-            // Hide Endgame Modal if visible
             const modal = document.getElementById('endgame-modal');
             modal.className = "fixed inset-0 bg-slate-950/90 backdrop-blur-md flex items-center justify-center z-50 hidden opacity-0 transition-all duration-300";
             
             isSimulating = false;
             gameDecisionMade = null;
             
-            // Procedurally generate a new match state
             currentScenario = generateRandomScenario();
             
             document.getElementById('current-scenario-title').innerText = `Setup: ${currentScenario.title}`;
             document.getElementById('scenario-description').innerText = currentScenario.description;
             
-            // Set stats/assessments
             document.getElementById('prob-percentage').innerText = `${currentScenario.baseChanceAsIs}%`;
             document.getElementById('prob-explanation').innerText = `Wide scattered targets mean missing an inch is an automatic miss.`;
             document.getElementById('tactical-rating').innerText = currentScenario.recommendation;
             
-            // Adjust recommendation style
             const ratingEl = document.getElementById('tactical-rating');
             if (currentScenario.recommendation.includes("Highly")) {
-                ratingEl.className = "text-xs font-extrabold text-amber-500 uppercase tracking-wide bg-amber-500/10 border border-amber-500/30 px-2.5 py-1 rounded animate-pulse";
+                ratingEl.className = "text-xs font-black text-white uppercase tracking-wide bg-amber-500 border-2 border-black px-3 py-1.5 rounded-lg pop-shadow-sm inline-block animate-bounce";
             } else {
-                ratingEl.className = "text-xs font-extrabold text-slate-300 uppercase tracking-wide bg-slate-850 border border-slate-700 px-2 py-1 rounded";
+                ratingEl.className = "text-xs font-black text-white uppercase tracking-wide bg-slate-500 border-2 border-black px-3 py-1.5 rounded-lg pop-shadow-sm inline-block";
             }
             document.getElementById('tactical-explanation').innerText = currentScenario.explanation;
 
-            // Load deep-copies of initial active layout
             activeMyCups = JSON.parse(JSON.stringify(currentScenario.myCups));
             activeOpponentCups = JSON.parse(JSON.stringify(currentScenario.opponentCups));
 
-            // Show decision interface again
             document.getElementById('decision-panel').classList.remove('opacity-50', 'pointer-events-none');
             document.getElementById('btn-rerack').classList.remove('opacity-30');
             document.getElementById('btn-no-rerack').classList.remove('opacity-30');
             
-            // Clear Log
-            logElement.innerHTML = `<div class="text-slate-300">&gt; Table cleared. Match set up. Make your strategic call below to launch the simulation...</div>`;
-            document.getElementById('sim-badge').className = "text-xs uppercase font-bold px-3 py-1 rounded bg-slate-800 text-slate-400";
+            logElement.innerHTML = `<div class="text-slate-300">&gt; Table cleared. New setup prepared! Make your Rerack decision below to shoot...</div>`;
+            document.getElementById('sim-badge').className = "text-xs uppercase font-black px-3 py-1 rounded-full border-2 border-black bg-white text-slate-950 shadow-[2px_2px_0px_#000]";
             document.getElementById('sim-badge').innerText = "Idle";
             document.getElementById('sim-result-badge').innerText = "--";
             document.getElementById('sim-result-badge').className = "font-extrabold text-slate-300";
@@ -570,7 +580,7 @@
             resetGame();
         }
 
-        // Render SVG Elements for both Sides
+        // Render SVG Elements for both Sides (with strong Cartoon black lines)
         function renderTable() {
             const oppSvg = document.getElementById('opponent-rack-svg');
             const mySvg = document.getElementById('my-rack-svg');
@@ -578,80 +588,87 @@
             oppSvg.innerHTML = '';
             mySvg.innerHTML = '';
 
-            // Draw Opponent Rack (Top)
             activeOpponentCups.forEach(cup => {
                 const group = document.createElementNS("http://www.w3.org/2000/svg", "g");
                 group.setAttribute("id", `opp-cup-${cup.id}`);
-                group.setAttribute("class", "transition-transform duration-150 hover:scale-105");
+                group.setAttribute("class", "transition-transform duration-150 hover:scale-110");
 
-                // Render Shadow
+                // Render Shadow (Cartoon bold)
                 const shadow = document.createElementNS("http://www.w3.org/2000/svg", "ellipse");
                 shadow.setAttribute("cx", cup.x);
-                shadow.setAttribute("cy", cup.y + 4);
+                shadow.setAttribute("cy", cup.y + 6);
                 shadow.setAttribute("rx", "18");
                 shadow.setAttribute("ry", "10");
-                shadow.setAttribute("fill", "rgba(0, 0, 0, 0.45)");
+                shadow.setAttribute("fill", "rgba(0, 0, 0, 0.6)");
                 group.appendChild(shadow);
 
                 if (cup.active) {
-                    // Outer Cup Rim (Red Solo Cup Aesthetics)
+                    // Outer Cup Rim (Thick Cartoon Outline)
                     const outerCup = document.createElementNS("http://www.w3.org/2000/svg", "ellipse");
                     outerCup.setAttribute("cx", cup.x);
                     outerCup.setAttribute("cy", cup.y);
                     outerCup.setAttribute("rx", "17");
                     outerCup.setAttribute("ry", "9");
-                    outerCup.setAttribute("fill", "#dc2626"); // Red
-                    outerCup.setAttribute("stroke", "#ef4444");
-                    outerCup.setAttribute("stroke-width", "1");
+                    outerCup.setAttribute("fill", "#dc2626"); // Red Solo
+                    outerCup.setAttribute("stroke", "#000000");
+                    outerCup.setAttribute("stroke-width", "3");
                     group.appendChild(outerCup);
 
-                    // Inner Beer Rim (Yellow Fluid Inside White Outer Lip)
+                    // Inner White lip
+                    const lipCup = document.createElementNS("http://www.w3.org/2000/svg", "ellipse");
+                    lipCup.setAttribute("cx", cup.x);
+                    lipCup.setAttribute("cy", cup.y);
+                    lipCup.setAttribute("rx", "14");
+                    lipCup.setAttribute("ry", "7");
+                    lipCup.setAttribute("fill", "#ffffff"); 
+                    lipCup.setAttribute("stroke", "#000000");
+                    lipCup.setAttribute("stroke-width", "2");
+                    group.appendChild(lipCup);
+
+                    // Inner Beer Rim (Yellow Fluid Inside)
                     const innerCup = document.createElementNS("http://www.w3.org/2000/svg", "ellipse");
                     innerCup.setAttribute("cx", cup.x);
                     innerCup.setAttribute("cy", cup.y);
-                    innerCup.setAttribute("rx", "14");
-                    innerCup.setAttribute("ry", "7");
-                    innerCup.setAttribute("fill", "#f59e0b"); // Liquid Beer amber
-                    innerCup.setAttribute("stroke", "#ffffff"); // White plastic lip
-                    innerCup.setAttribute("stroke-width", "1.5");
+                    innerCup.setAttribute("rx", "12");
+                    innerCup.setAttribute("ry", "5.5");
+                    innerCup.setAttribute("fill", "#fbbf24"); // Amber Beer
                     group.appendChild(innerCup);
 
                     // Foam detail inside the beer
                     const foam = document.createElementNS("http://www.w3.org/2000/svg", "circle");
                     foam.setAttribute("cx", cup.x - 4);
                     foam.setAttribute("cy", cup.y - 1);
-                    foam.setAttribute("r", "2");
-                    foam.setAttribute("fill", "rgba(255, 255, 255, 0.6)");
+                    foam.setAttribute("r", "2.5");
+                    foam.setAttribute("fill", "rgba(255, 255, 255, 0.85)");
                     group.appendChild(foam);
                 } else {
-                    // Dashed Empty circle (Sunk)
+                    // Dashed Empty circle (Sunk cartoon style)
                     const emptyCup = document.createElementNS("http://www.w3.org/2000/svg", "ellipse");
                     emptyCup.setAttribute("cx", cup.x);
                     emptyCup.setAttribute("cy", cup.y);
                     emptyCup.setAttribute("rx", "16");
                     emptyCup.setAttribute("ry", "8");
                     emptyCup.setAttribute("fill", "none");
-                    emptyCup.setAttribute("stroke", "rgba(239, 68, 68, 0.55)");
-                    emptyCup.setAttribute("stroke-width", "1.5");
-                    emptyCup.setAttribute("stroke-dasharray", "3,3");
+                    emptyCup.setAttribute("stroke", "#ef4444");
+                    emptyCup.setAttribute("stroke-width", "3.5");
+                    emptyCup.setAttribute("stroke-dasharray", "4,3");
                     group.appendChild(emptyCup);
                 }
 
                 oppSvg.appendChild(group);
             });
 
-            // Draw My Rack (Bottom) - Mirroring same structure but different set coordinates
             activeMyCups.forEach(cup => {
                 const group = document.createElementNS("http://www.w3.org/2000/svg", "g");
                 group.setAttribute("id", `my-cup-${cup.id}`);
+                group.setAttribute("class", "transition-transform duration-150 hover:scale-110");
 
-                // Shadow
                 const shadow = document.createElementNS("http://www.w3.org/2000/svg", "ellipse");
                 shadow.setAttribute("cx", cup.x);
-                shadow.setAttribute("cy", cup.y + 4);
+                shadow.setAttribute("cy", cup.y + 6);
                 shadow.setAttribute("rx", "18");
                 shadow.setAttribute("ry", "10");
-                shadow.setAttribute("fill", "rgba(0, 0, 0, 0.45)");
+                shadow.setAttribute("fill", "rgba(0, 0, 0, 0.6)");
                 group.appendChild(shadow);
 
                 if (cup.active) {
@@ -661,18 +678,26 @@
                     outerCup.setAttribute("rx", "17");
                     outerCup.setAttribute("ry", "9");
                     outerCup.setAttribute("fill", "#dc2626");
-                    outerCup.setAttribute("stroke", "#ef4444");
-                    outerCup.setAttribute("stroke-width", "1");
+                    outerCup.setAttribute("stroke", "#000000");
+                    outerCup.setAttribute("stroke-width", "3");
                     group.appendChild(outerCup);
+
+                    const lipCup = document.createElementNS("http://www.w3.org/2000/svg", "ellipse");
+                    lipCup.setAttribute("cx", cup.x);
+                    lipCup.setAttribute("cy", cup.y);
+                    lipCup.setAttribute("rx", "14");
+                    lipCup.setAttribute("ry", "7");
+                    lipCup.setAttribute("fill", "#ffffff");
+                    lipCup.setAttribute("stroke", "#000000");
+                    lipCup.setAttribute("stroke-width", "2");
+                    group.appendChild(lipCup);
 
                     const innerCup = document.createElementNS("http://www.w3.org/2000/svg", "ellipse");
                     innerCup.setAttribute("cx", cup.x);
                     innerCup.setAttribute("cy", cup.y);
-                    innerCup.setAttribute("rx", "14");
-                    innerCup.setAttribute("ry", "7");
-                    innerCup.setAttribute("fill", "#f59e0b");
-                    innerCup.setAttribute("stroke", "#ffffff");
-                    innerCup.setAttribute("stroke-width", "1.5");
+                    innerCup.setAttribute("rx", "12");
+                    innerCup.setAttribute("ry", "5.5");
+                    innerCup.setAttribute("fill", "#fbbf24");
                     group.appendChild(innerCup);
                 } else {
                     const emptyCup = document.createElementNS("http://www.w3.org/2000/svg", "ellipse");
@@ -681,9 +706,9 @@
                     emptyCup.setAttribute("rx", "16");
                     emptyCup.setAttribute("ry", "8");
                     emptyCup.setAttribute("fill", "none");
-                    emptyCup.setAttribute("stroke", "rgba(239, 68, 68, 0.45)");
-                    emptyCup.setAttribute("stroke-width", "1.5");
-                    emptyCup.setAttribute("stroke-dasharray", "3,3");
+                    emptyCup.setAttribute("stroke", "#ef4444");
+                    emptyCup.setAttribute("stroke-width", "3.5");
+                    emptyCup.setAttribute("stroke-dasharray", "4,3");
                     group.appendChild(emptyCup);
                 }
 
@@ -698,18 +723,16 @@
             gameDecisionMade = rerack;
             isSimulating = true;
 
-            // Lock decision UI
             document.getElementById('decision-panel').classList.add('opacity-50', 'pointer-events-none');
-            document.getElementById('sim-badge').className = "text-xs uppercase font-bold px-3 py-1 rounded bg-amber-500 text-slate-950 animate-pulse";
+            document.getElementById('sim-badge').className = "text-xs uppercase font-black px-3 py-1 rounded-full border-2 border-black bg-amber-400 text-slate-950 animate-bounce shadow-[2px_2px_0px_#000]";
             document.getElementById('sim-badge').innerText = "Simulating Match";
 
-            logElement.innerHTML = ''; // Reset log
+            logElement.innerHTML = ''; 
             
             if (rerack) {
-                appendLog(`💥 "RERACK! Group those cups!" Opponent consolidates their remaining layout...`, 'text-amber-450 font-bold');
+                appendLog(`💥 "RERACK! Group those cups!" Opponent consolidates their remaining layout...`, 'text-amber-400 font-black');
                 playSound('bounce');
                 
-                // Set layout to consolidated reracked preset
                 activeOpponentCups = JSON.parse(JSON.stringify(currentScenario.opponentReracked));
                 renderTable();
 
@@ -720,7 +743,7 @@
                     startSimulationLoop(true);
                 }, 1000);
             } else {
-                appendLog(`🎯 "Hold layout, shooting as-is!" You conserve your single rerack option for later.`, 'text-slate-200 font-bold');
+                appendLog(`🎯 "Hold layout, shooting as-is!" You conserve your single rerack option for later.`, 'text-slate-100 font-black');
                 setTimeout(() => {
                     startSimulationLoop(false);
                 }, 1000);
@@ -739,7 +762,7 @@
         function animateBall(fromSide, targetX, targetY, isHit, callback) {
             const ball = document.getElementById('flying-ball');
             const tableWidth = 330;
-            const tableHeight = 660; // approximate dimensions
+            const tableHeight = 660; 
 
             ball.classList.remove('hidden');
             
@@ -796,12 +819,12 @@
             let turnCount = 1;
 
             const basePlayerAcc = usedRerack ? currentScenario.baseChanceRerack / 100 : currentScenario.baseChanceAsIs / 100;
-            const baseOpponentAcc = 0.50; // Opponent has decent consistent aim (50% hit rate)
+            const baseOpponentAcc = 0.50; 
 
             while (isSimulating) {
                 appendLog(`--- ROUND ${turnCount} ---`, 'text-indigo-400 font-bold border-t border-slate-850 pt-3 mt-3');
                 
-                showStatusBanner("Your Turn to Shoot!", "text-amber-450");
+                showStatusBanner("Your Turn to Shoot!", "text-slate-900 bg-amber-400 border-2 border-black px-3 py-1 rounded-full");
 
                 // --- PLAYER TURN (2 SHOTS) ---
                 let playerTurnHits = 0;
@@ -815,17 +838,17 @@
                         let isHit = Math.random() < basePlayerAcc;
                         let targetCup = activeOpponentCups[targetCupIndex];
                         
-                        appendLog(`You launch a high arc towards Cup #${targetCup.id}...`, 'text-slate-300');
+                        appendLog(`You launch a high cartoon arc towards Cup #${targetCup.id}...`, 'text-slate-300');
                         await animateShot('user', targetCup.x, targetCup.y, isHit);
 
                         if (isHit) {
                             targetCup.active = false;
                             playerTurnHits++;
                             activeOppCount--;
-                            appendLog(`💥 YES! Sunk Cup #${targetCup.id}!`, 'text-emerald-400 font-extrabold');
+                            appendLog(`💥 SWISH! Sunk Cup #${targetCup.id}!`, 'text-emerald-400 font-black');
                             renderTable();
                         } else {
-                            appendLog(`💨 Airball! Bounced away.`, 'text-rose-400');
+                            appendLog(`💨 Airball! Bounced clean off.`, 'text-rose-400');
                         }
                     }
 
@@ -844,10 +867,10 @@
                                 targetCup.active = false;
                                 playerTurnHits++;
                                 activeOppCount--;
-                                appendLog(`💥 BOOM! Sunk Cup #${targetCup.id}!`, 'text-emerald-400 font-extrabold');
+                                appendLog(`💥 BOOM! Sunk Cup #${targetCup.id}!`, 'text-emerald-400 font-black');
                                 renderTable();
                             } else {
-                                appendLog(`💨 Clank! Hit the rim and rolled out.`, 'text-rose-400');
+                                appendLog(`💨 Clank! Hit the rim and popped out.`, 'text-rose-400');
                             }
                         }
                     }
@@ -867,7 +890,7 @@
                             if (isHit) {
                                 targetCup.active = false;
                                 activeOppCount--;
-                                appendLog(`💥 Sunk! Hot streak!`, 'text-emerald-400 font-bold');
+                                appendLog(`💥 Sunk! Hot streak!`, 'text-emerald-400 font-black');
                                 renderTable();
                             }
                         }
@@ -883,7 +906,7 @@
                                 if (isHit) {
                                     targetCup.active = false;
                                     activeOppCount--;
-                                    appendLog(`💥 Sunk! Incredible run!`, 'text-emerald-400 font-bold');
+                                    appendLog(`💥 Sunk! Incredible run!`, 'text-emerald-400 font-black');
                                     renderTable();
                                 }
                             }
@@ -908,7 +931,7 @@
                 }
 
                 // --- OPPONENT TURN (2 SHOTS) ---
-                showStatusBanner("Opponent is Aiming...", "text-rose-450");
+                showStatusBanner("Opponent is Aiming...", "text-rose-450 bg-white border-2 border-black px-3 py-1 rounded-full");
                 await delay(1200);
 
                 let oppTurnHits = 0;
@@ -928,7 +951,7 @@
                             targetCup.active = false;
                             oppTurnHits++;
                             activeMyCount--;
-                            appendLog(`🎯 Splash! Opponent sunk your Cup #${targetCup.id}!`, 'text-rose-400 font-bold');
+                            appendLog(`🎯 Splash! Opponent sunk your Cup #${targetCup.id}!`, 'text-rose-400 font-black');
                             renderTable();
                         } else {
                             appendLog(`💨 Opponent missed!`, 'text-slate-400');
@@ -950,7 +973,7 @@
                                 targetCup.active = false;
                                 oppTurnHits++;
                                 activeMyCount--;
-                                appendLog(`🎯 Splash! Sunk your Cup #${targetCup.id}!`, 'text-rose-400 font-bold');
+                                appendLog(`🎯 Splash! Sunk your Cup #${targetCup.id}!`, 'text-rose-400 font-black');
                                 renderTable();
                             } else {
                                 appendLog(`💨 Opponent missed.`, 'text-slate-400');
@@ -971,7 +994,7 @@
                             if (isHit) {
                                 targetCup.active = false;
                                 activeMyCount--;
-                                appendLog(`🎯 Splash! Sunk.`, 'text-rose-400 font-bold');
+                                appendLog(`🎯 Splash! Sunk.`, 'text-rose-400 font-black');
                                 renderTable();
                             }
                         }
@@ -986,7 +1009,7 @@
                                 if (isHit) {
                                     targetCup.active = false;
                                     activeMyCount--;
-                                    appendLog(`🎯 Splash! Sunk.`, 'text-rose-400 font-bold');
+                                    appendLog(`🎯 Splash! Sunk.`, 'text-rose-400 font-black');
                                     renderTable();
                                 }
                             }
@@ -996,7 +1019,7 @@
 
                 // Check Loss Condition
                 if (activeMyCount <= 0) {
-                    appendLog(`🚨 Down to your last cup! Stand up for REDEMPTION!`, 'text-[#d4af37] font-bold');
+                    appendLog(`🚨 Down to your last cup! Stand up for REDEMPTION!`, 'text-amber-500 font-black');
                     
                     let userRedeemed = await runRedemptionLoop('user', basePlayerAcc);
                     if (userRedeemed) {
@@ -1024,7 +1047,7 @@
             let success = false;
 
             if (side === 'user') {
-                showStatusBanner("REDEMPTION! SHOOT UNTIL YOU MISS!", "text-emerald-400 animate-pulse");
+                showStatusBanner("REDEMPTION! SHOOT UNTIL YOU MISS!", "text-emerald-400 bg-slate-950 border-4 border-black p-2 rounded-xl animate-pulse");
                 let remainingTargetCups = activeOpponentCups.filter(c => c.active);
                 
                 while (stillRedeeming && remainingTargetCups.length > 0) {
@@ -1032,7 +1055,7 @@
                     let targetCup = remainingTargetCups[0];
                     let isHit = Math.random() < accuracy;
                     
-                    appendLog(`[Redemption] Launching at Cup #${targetCup.id}...`, 'text-[#d4af37]');
+                    appendLog(`[Redemption] Launching at Cup #${targetCup.id}...`, 'text-amber-400');
                     await animateShot('user', targetCup.x, targetCup.y, isHit);
 
                     if (isHit) {
@@ -1050,7 +1073,7 @@
                     }
                 }
             } else {
-                showStatusBanner("OPPONENT REDEMPTION THROW", "text-rose-450 animate-pulse");
+                showStatusBanner("OPPONENT REDEMPTION THROW", "text-rose-450 bg-slate-950 border-4 border-black p-2 animate-pulse");
                 let remainingTargetCups = activeMyCups.filter(c => c.active);
 
                 while (stillRedeeming && remainingTargetCups.length > 0) {
@@ -1058,7 +1081,7 @@
                     let targetCup = remainingTargetCups[0];
                     let isHit = Math.random() < accuracy;
 
-                    appendLog(`[Redemption] Opponent shoots at Cup #${targetCup.id}...`, 'text-rose-300');
+                    appendLog(`[Redemption] Opponent shoots at Cup #${targetCup.id}...`, 'text-rose-350');
                     await animateShot('opponent', targetCup.x, targetCup.y, isHit);
 
                     if (isHit) {
@@ -1112,7 +1135,6 @@
             return new Promise(resolve => setTimeout(resolve, ms));
         }
 
-        // Returns random active cup index inside the cup array
         function selectRandomActiveCup(cups) {
             const activeIndices = cups.map((c, i) => c.active ? i : -1).filter(idx => idx !== -1);
             if (activeIndices.length === 0) return -1;
@@ -1123,21 +1145,20 @@
             const banner = document.getElementById('sim-status-banner');
             const bannerText = document.getElementById('sim-status-text');
             bannerText.innerText = text;
-            bannerText.className = `text-sm font-bold uppercase tracking-wider ${cssClass}`;
-            banner.className = "absolute top-4 left-4 right-4 bg-slate-900/95 border border-slate-800 p-3.5 rounded-xl text-center shadow-lg transform translate-y-0 opacity-100 transition-all duration-300 pointer-events-none z-20";
+            bannerText.className = `text-sm font-black uppercase tracking-wider ${cssClass}`;
+            banner.className = "absolute top-4 left-4 right-4 bg-yellow-300 border-4 border-black p-3.5 rounded-2xl text-center shadow-[6px_6px_0px_#000] transform translate-y-0 opacity-100 transition-all duration-300 pointer-events-none z-20";
             
             setTimeout(() => {
-                banner.className = "absolute top-4 left-4 right-4 bg-slate-900/95 border border-slate-800 p-3.5 rounded-xl text-center shadow-lg transform -translate-y-20 opacity-0 transition-all duration-300 pointer-events-none z-20";
+                banner.className = "absolute top-4 left-4 right-4 bg-yellow-300 border-4 border-black p-3.5 rounded-2xl text-center shadow-[6px_6px_0px_#000] transform -translate-y-24 opacity-0 transition-all duration-300 pointer-events-none z-20";
             }, 2500);
         }
 
         // Conclude Simulation Loop
         function endGame(playerWon, usedRerack) {
             isSimulating = false;
-            document.getElementById('sim-badge').className = "text-xs uppercase font-bold px-2.5 py-1 rounded bg-slate-850 text-slate-300";
+            document.getElementById('sim-badge').className = "text-xs uppercase font-black px-3 py-1 rounded bg-slate-850 text-slate-300";
             document.getElementById('sim-badge').innerText = "Finished";
 
-            // Grab elements for Endgame overlay modal
             const modal = document.getElementById('endgame-modal');
             const modalEmoji = document.getElementById('modal-emoji');
             const modalTitle = document.getElementById('modal-title');
@@ -1148,15 +1169,14 @@
 
             if (playerWon === true) {
                 playSound('cheer');
-                appendLog(`🎉 VICTORY! YOU WON THE MATCH!`, 'text-emerald-400 font-extrabold text-base border-t border-slate-800/60 pt-4 mt-4');
+                appendLog(`🎉 VICTORY! YOU WON THE MATCH!`, 'text-emerald-400 font-black text-base border-t border-slate-800/60 pt-4 mt-4');
                 document.getElementById('sim-result-badge').innerText = "🏆 WON";
                 document.getElementById('sim-result-badge').className = "font-black text-emerald-400 text-lg";
                 
-                // Configure modal for Win
                 modalEmoji.innerText = "🏆";
                 modalTitle.innerText = "YOU WON THE MATCH!";
-                modalTitle.className = "text-4xl md:text-5xl font-extrabold text-emerald-400 title-font mb-3";
-                modalSubtitle.innerText = "Clutch shooting and clean simulation run!";
+                modalTitle.className = "text-4xl md:text-5xl font-black text-emerald-500 title-font mb-3";
+                modalSubtitle.innerText = "Outstanding tactical accuracy on the board!";
                 
                 if (usedRerack) {
                     analysisText = `Reracking was the absolute correct choice! It organized the wide scattered cups into a single tight cluster, boosting your probability from ${currentScenario.baseChanceAsIs}% to ${currentScenario.baseChanceRerack}%. This maximized splash damage and eliminated margin of error. Great tactics!`;
@@ -1165,14 +1185,13 @@
                 }
             } else if (playerWon === false) {
                 playSound('miss');
-                appendLog(`💀 DEFEAT! Opponent wins. Clean off the table!`, 'text-rose-450 font-extrabold text-base border-t border-slate-800/60 pt-4 mt-4');
+                appendLog(`💀 DEFEAT! Opponent wins. Clean off the table!`, 'text-rose-450 font-black text-base border-t border-slate-800/60 pt-4 mt-4');
                 document.getElementById('sim-result-badge').innerText = "💀 LOST";
                 document.getElementById('sim-result-badge').className = "font-black text-rose-500 text-lg";
 
-                // Configure modal for Loss
                 modalEmoji.innerText = "💀";
                 modalTitle.innerText = "OPPONENT WINS";
-                modalTitle.className = "text-4xl md:text-5xl font-extrabold text-rose-500 title-font mb-3";
+                modalTitle.className = "text-4xl md:text-5xl font-black text-red-600 title-font mb-3";
                 modalSubtitle.innerText = "Clean off the table and prepare for another round.";
 
                 if (!usedRerack) {
@@ -1186,14 +1205,13 @@
                 
                 modalEmoji.innerText = "🤝";
                 modalTitle.innerText = "IT'S A DRAW!";
-                modalTitle.className = "text-4xl md:text-5xl font-extrabold text-slate-400 title-font mb-3";
+                modalTitle.className = "text-4xl md:text-5xl font-black text-slate-400 title-font mb-3";
                 modalSubtitle.innerText = "Both sides hit standard turn limits.";
                 analysisText = "A rare marathon match! Both players ran standard double-turn rules up to limit capacity without settling final redemption parameters.";
             }
 
             modalAnalysis.innerText = analysisText;
 
-            // Render/fade in endgame modal
             modal.classList.remove('hidden');
             setTimeout(() => {
                 modal.classList.add('opacity-100');
