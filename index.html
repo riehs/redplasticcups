@@ -91,7 +91,7 @@
         <!-- Left Side: Cartoon Wood Door Table (7 Cols) -->
         <div class="lg:col-span-7 flex flex-col bg-white border-4 border-black p-5 md:p-6 rounded-3xl pop-shadow relative min-h-[620px] justify-between">
             
-            <div class="mb-4 bg-amber-50 p-4 border-4 border-black rounded-2xl pop-shadow-sm">
+            <div class="mb-4 bg-amber-5 p-4 border-4 border-black rounded-2xl pop-shadow-sm">
                 <h3 class="text-lg font-black uppercase tracking-wider text-red-600">Door Table Layout</h3>
                 <p class="text-sm md:text-base text-slate-900 font-bold leading-relaxed mt-1" id="scenario-description">Generating standard random scattered positions based on classic match configurations...</p>
             </div>
@@ -119,8 +119,6 @@
 
                     <!-- Bold Painted Center Line -->
                     <div class="absolute top-1/2 left-0 right-0 h-1.5 bg-yellow-300 border-t border-b border-black"></div>
-                    <!-- Bold Center Circle -->
-                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full border-[3px] border-dashed border-yellow-300 pointer-events-none"></div>
 
                     <!-- Cartoon Wash Cups with Water and splashing drop -->
                     <!-- Top-Left Wash Cup -->
@@ -165,11 +163,11 @@
             </div>
 
             <!-- Interactive Decision Interface -->
-            <div id="decision-panel" class="mt-5 bg-amber-50 p-6 rounded-2xl border-4 border-black shadow-[4px_4px_0px_#000]">
+            <div id="decision-panel" class="mt-5 bg-amber-5 p-6 rounded-2xl border-4 border-black shadow-[4px_4px_0px_#000]">
                 <div class="flex flex-col md:flex-row items-center justify-between gap-6">
                     <div class="text-slate-950">
                         <h4 class="text-xl font-black uppercase tracking-wide">Strategic Choice: Your Shot</h4>
-                        <p class="text-base text-slate-900 mt-2 font-black leading-relaxed">Do you request your <span class="text-red-650 font-black underline decoration-2">1 free Rerack</span> to cluster their remaining cups, or shoot as they are?</p>
+                        <p class="text-base text-slate-900 mt-2 font-black leading-relaxed">Do you request your <span class="text-red-655 font-black underline decoration-2">1 free Rerack</span> to cluster their remaining cups, or shoot as they are?</p>
                     </div>
                     
                     <div class="flex gap-4 w-full md:w-auto">
@@ -192,12 +190,12 @@
             <div class="bg-white border-4 border-black p-5 rounded-3xl pop-shadow flex flex-col gap-4">
                 <div class="flex justify-between items-center border-b-4 border-black pb-3">
                     <h3 class="text-lg font-black uppercase tracking-wider text-red-600">Match Analytics</h3>
-                    <span class="text-xs bg-red-655 text-white border-2 border-black font-black px-3 py-1 rounded-full pop-shadow-sm rotate-1 select-none">Rerack Available</span>
+                    <span class="text-xs bg-red-500 text-white border-2 border-black font-black px-3 py-1 rounded-full pop-shadow-sm rotate-1 select-none animate-pulse">🔥 RERACK READY</span>
                 </div>
 
                 <div class="grid grid-cols-2 gap-4">
                     <!-- Probability Panel -->
-                    <div class="bg-amber-50 p-4 rounded-2xl border-4 border-black shadow-[4px_4px_0px_#000] flex flex-col justify-between gap-3 text-slate-950">
+                    <div class="bg-amber-5 p-4 rounded-2xl border-4 border-black shadow-[4px_4px_0px_#000] flex flex-col justify-between gap-3 text-slate-950">
                         <span class="text-sm uppercase font-black tracking-wider text-slate-700">Hit Probability</span>
                         <div class="my-1 flex items-baseline gap-1">
                             <span id="prob-percentage" class="text-5xl font-black text-red-650 filter drop-shadow-[2px_2px_0px_rgba(0,0,0,0.15)]">--</span>
@@ -206,7 +204,7 @@
                     </div>
 
                     <!-- Tactical Assessment -->
-                    <div class="bg-amber-50 p-4 rounded-2xl border-4 border-black shadow-[4px_4px_0px_#000] flex flex-col justify-between gap-3 text-slate-950">
+                    <div class="bg-amber-5 p-4 rounded-2xl border-4 border-black shadow-[4px_4px_0px_#000] flex flex-col justify-between gap-3 text-slate-950">
                         <span class="text-sm uppercase font-black tracking-wider text-slate-700">Decision Tip</span>
                         <div class="my-1">
                             <span id="tactical-rating" class="text-xs font-black text-white uppercase tracking-wide bg-amber-500 border-2 border-black px-3 py-1.5 rounded-lg pop-shadow-sm inline-block">Highly Recommended</span>
@@ -216,7 +214,7 @@
                 </div>
 
                 <!-- Simulation Speed Control -->
-                <div class="bg-amber-50 p-4 rounded-2xl border-4 border-black flex items-center justify-between gap-4 text-slate-950">
+                <div class="bg-amber-5 p-4 rounded-2xl border-4 border-black flex items-center justify-between gap-4 text-slate-950">
                     <span class="text-sm font-black text-slate-900">Simulation Speed</span>
                     <div class="flex gap-2 bg-white p-1.5 rounded-xl border-2 border-black">
                         <button onclick="setSimSpeed(2000)" id="speed-slow" class="px-4 py-2 text-xs font-black rounded-lg border-2 border-black bg-white text-slate-950 btn-bounce pop-shadow-sm">Slow</button>
@@ -237,14 +235,14 @@
                 </div>
 
                 <!-- Log Terminal -->
-                <div id="sim-log" class="flex-grow my-4 p-4 bg-amber-50 rounded-2xl border-4 border-black text-base font-bold font-mono overflow-y-auto max-h-[240px] custom-scrollbar flex flex-col gap-3 shadow-[inset_0_4px_8px_rgba(0,0,0,0.1)] text-slate-950">
+                <div id="sim-log" class="flex-grow my-4 p-4 bg-amber-55 rounded-2xl border-4 border-black text-base font-bold font-mono overflow-y-auto max-h-[240px] custom-scrollbar flex flex-col gap-3 shadow-[inset_0_4px_8px_rgba(0,0,0,0.1)] text-slate-950">
                     <div class="text-slate-650">&gt; Generating fresh beer pong table setup...</div>
                 </div>
 
                 <!-- Simulation Action Controls -->
                 <div id="sim-controls" class="flex items-center justify-between gap-4 pt-4 border-t-4 border-black">
-                    <div class="text-base text-slate-950 font-black bg-amber-50 border-2 border-black px-4 py-2 rounded-xl">
-                        Result: <span id="sim-result-badge" class="font-black text-red-650 text-lg uppercase">--</span>
+                    <div class="text-base text-slate-950 font-black bg-amber-5 border-2 border-black px-4 py-2 rounded-xl">
+                        Result: <span id="sim-result-badge" class="font-black text-red-655 text-lg uppercase">--</span>
                     </div>
                     <button id="btn-reset" onclick="resetGame()" class="bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-lg px-8 py-4 rounded-2xl border-4 border-black transition-all duration-75 btn-bounce pop-shadow-sm flex items-center gap-2">
                         🎲 Roll New Door Layout
@@ -288,7 +286,7 @@
             <p id="modal-subtitle" class="text-xl text-slate-700 font-bold mb-6">Excellent shooting on the door table!</p>
             
             <div class="bg-amber-100 p-6 rounded-2xl text-base text-slate-900 text-left mb-8 border-4 border-black leading-relaxed shadow-inner">
-                <span class="text-red-650 font-black text-lg block mb-1">📋 Match Performance Analysis:</span>
+                <span class="text-red-655 font-black text-lg block mb-1">📋 Match Performance Analysis:</span>
                 <p id="modal-analysis" class="text-slate-900 font-bold">Dynamic post game analysis goes here...</p>
             </div>
             
@@ -730,7 +728,7 @@
             logElement.innerHTML = ''; 
             
             if (rerack) {
-                appendLog(`💥 "RERACK! Group those cups!" Opponent consolidates their remaining layout...`, 'text-red-600 font-black');
+                appendLog(`💥 "RERACK! Group those cups!" Opponent consolidates their remaining layout...`, 'text-red-605 font-black');
                 playSound('bounce');
                 
                 activeOpponentCups = JSON.parse(JSON.stringify(currentScenario.opponentReracked));
@@ -848,7 +846,7 @@
                             appendLog(`💥 SWISH! Sunk Cup #${targetCup.id}!`, 'text-emerald-600 font-black');
                             renderTable();
                         } else {
-                            appendLog(`💨 Airball! Bounced clean off.`, 'text-red-500');
+                            appendLog(`💨 Airball! Bounced clean off.`, 'text-red-550');
                         }
                     }
 
@@ -870,7 +868,7 @@
                                 appendLog(`💥 BOOM! Sunk Cup #${targetCup.id}!`, 'text-emerald-600 font-black');
                                 renderTable();
                             } else {
-                                appendLog(`💨 Clank! Hit the rim and popped out.`, 'text-red-500');
+                                appendLog(`💨 Clank! Hit the rim and popped out.`, 'text-red-550');
                             }
                         }
                     }
@@ -890,7 +888,7 @@
                             if (isHit) {
                                 targetCup.active = false;
                                 activeOppCount--;
-                                appendLog(`💥 Sunk! Hot streak!`, 'text-emerald-600 font-black');
+                                appendLog(`💥 Sunk! Hot streak!`, 'text-emerald-400 font-black');
                                 renderTable();
                             }
                         }
@@ -916,7 +914,7 @@
 
                 // Check Win
                 if (activeOppCount <= 0) {
-                    appendLog(`🚨 Opponent is out of cups! Time for their Redemption shot...`, 'text-red-600 font-bold');
+                    appendLog(`🚨 Opponent is out of cups! Time for their Redemption shot...`, 'text-red-655 font-bold');
                     
                     let opponentRedeemed = await runRedemptionLoop('opponent', baseOpponentAcc);
                     if (opponentRedeemed) {
@@ -1023,7 +1021,7 @@
                     
                     let userRedeemed = await runRedemptionLoop('user', basePlayerAcc);
                     if (userRedeemed) {
-                        appendLog(`🔥 GAME SAVED! Outstanding clutch redemption! Triggering Overtime (3-cup setups)!`, 'text-emerald-600 font-black animate-pulse');
+                        appendLog(`🔥 GAME SAVED! Outstanding clutch redemption! Triggering Overtime (3-cup layouts)!`, 'text-emerald-400 font-black animate-pulse');
                         triggerOvertime();
                     } else {
                         endGame(false, usedRerack);
@@ -1047,7 +1045,7 @@
             let success = false;
 
             if (side === 'user') {
-                showStatusBanner("REDEMPTION! SHOOT UNTIL YOU MISS!", "text-emerald-650 bg-white border-4 border-black p-2 rounded-xl animate-pulse");
+                showStatusBanner("REDEMPTION! SHOOT UNTIL YOU MISS!", "text-emerald-655 bg-white border-4 border-black p-2 rounded-xl animate-pulse");
                 let remainingTargetCups = activeOpponentCups.filter(c => c.active);
                 
                 while (stillRedeeming && remainingTargetCups.length > 0) {
@@ -1094,7 +1092,7 @@
                             stillRedeeming = false;
                         }
                     } else {
-                        appendLog(`💨 Opponent missed redemption! Game Over!`, 'text-slate-500');
+                        appendLog(`💨 Opponent missed redemption! Game Over!`, 'text-slate-550');
                         stillRedeeming = false;
                     }
                 }
@@ -1187,11 +1185,11 @@
                 playSound('miss');
                 appendLog(`💀 DEFEAT! Opponent wins. Clean off the table!`, 'text-red-500 font-black text-base border-t border-slate-800/60 pt-4 mt-4');
                 document.getElementById('sim-result-badge').innerText = "💀 LOST";
-                document.getElementById('sim-result-badge').className = "font-black text-red-600 text-lg";
+                document.getElementById('sim-result-badge').className = "font-black text-red-655 text-lg";
 
                 modalEmoji.innerText = "💀";
                 modalTitle.innerText = "OPPONENT WINS";
-                modalTitle.className = "text-4xl md:text-5xl font-black text-red-600 title-font mb-3";
+                modalTitle.className = "text-4xl md:text-5xl font-black text-red-655 title-font mb-3";
                 modalSubtitle.innerText = "Clean off the table and prepare for another round.";
 
                 if (!usedRerack) {
